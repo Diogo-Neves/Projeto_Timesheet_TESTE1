@@ -13,7 +13,7 @@
 #include <locale.h>
 
 
-void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes ){
+void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets ){
     
     //funcionarios->contador = number;
     
@@ -21,6 +21,12 @@ void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes ){
     //funcionarios->contador = number;
     printf("valor do contador %d\n", number);
     printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[number].funcNumbr );
+    
+    
+    timesheets->timesheets[number].funTS[number].funcNumbr = funcionarios->meuST1[number].funcNumbr;
+    printf("%d TIMESHEETID\n", timesheets->timesheets[number].funTS[number].funcNumbr);
+    //timesheets->timesheets[number].funTS[number].meuST1[number].funcNumbr = funcionarios->meuST1[number].funcNumbr;
+    //printf("FUNCIONARIO: %d -- ", timesheets->timesheets[___contador da timesheet___].funTS[___contador de funcionariosTS___].meuST1[FUNCSNR].funcNumbr );
     
     //number = funcionarios->meuST1[number].funcNumbr;
     
@@ -121,7 +127,7 @@ void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int 
    switch(mes){
        case 1 :
            //Funcionario_st2 *funcionarios, int number, int dias, int mes 
-           dias_total(funcionarios, contador2, 31, mes);
+           dias_total(funcionarios, contador2, 31, mes, timesheets);
            printf("teste1");
            break;
        /*case 2:

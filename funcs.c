@@ -61,17 +61,17 @@ void criarFunc(Funcionario_st2 *funcionarios) {
     scanf(" %[^\n]s", nomeFunc);
     
     
-    //lerString(funcionarios->meuST1[funcionarios->contador].funcNome, 25, MSG_OBTER_NOME);
+  
     
     
     strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
     
-    //pContador = &funcionarios->meuST1[funcionarios->contador]; 
+ 
     
     funcionarios->contador++;   
-    //printf("pFuncs  %f \n",funcionarios );
+ 
     printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+   
 }
 
 
@@ -86,6 +86,20 @@ void listarFuncs(Funcionario_st2 funcionarios) {
     //printf("%d", funcionarios.meuST1[0].meiaJorn);
 }
 
+void imprimirTimesheets(Timesheet_st1 timesheets, int i){
+    printf("Func Nr: %d Timesheet nr: %d  \n", timesheets.funTS[0].funcNumbr, timesheets.mesTS);
+}
+
+
+
+void listTimesheets(Timesheet_st2 timesheets) {
+    int i;
+    for (i = 0; i <= timesheets.contadorTS; i++) {
+        printf("%d", i);        
+        imprimirTimesheets(timesheets.timesheets[i], i);
+        }
+    //printf("%d", funcionarios.meuST1[0].meiaJorn);
+}
 
 
 
@@ -128,7 +142,7 @@ void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
             //printf("posiçao do funNumber: %d\n", funcionarios->meuST1[i].funcNumbr);
     
             
-            preenchermes(funcionarios, &timesheets, i );
+            preenchermes(funcionarios, timesheets, i );
         }else{
             printf("Não existe" );
         }

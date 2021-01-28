@@ -51,9 +51,9 @@ int main() {
             case 2:
                 preencherTS(&funcionarios, &timesheets);
                 break;
-            //case 3:
-              //  listTimesheets(&funcionarios);
-                //break;
+            case 3:
+                listTimesheets(timesheets);
+                break;
             //case 4:
               //  removerAlunos(&alunos);
                 //break;

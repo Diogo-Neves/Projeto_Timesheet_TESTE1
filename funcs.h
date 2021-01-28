@@ -27,17 +27,6 @@ typedef struct {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 typedef struct {
     Funcionario_st1 meuST1[10];
     int contador;
@@ -47,14 +36,10 @@ typedef struct {
 
 
 
-
-
-
-
 typedef struct {
     int jornadaComp, meiaJorn, falta, folga;
     int mesTS, anoTS, timesheetCode;
-    int codFunc;
+    Funcionario_st1 funTS[10];
 } Timesheet_st1;
 
 typedef struct {
@@ -70,8 +55,9 @@ typedef struct {
 
 void criarFunc(Funcionario_st2 *funcionarios);
 void listarFuncs(Funcionario_st2 funcionarios);
+void listTimesheets(Timesheet_st2 timesheets);
 void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
-void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes );
+void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets );
 
 //void lerString(char *string, unsigned int tamanho, char *msg);5
 
