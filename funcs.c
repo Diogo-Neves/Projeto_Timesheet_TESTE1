@@ -99,7 +99,7 @@ void listarFuncs(Funcionario_st2 funcionarios) {
 
 
 
-void preencherTS(Funcionario_st2 *funcionarios){
+void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
     
     int nrFunc, i;
     
@@ -128,7 +128,7 @@ void preencherTS(Funcionario_st2 *funcionarios){
             printf("posiçao do funNumber: %d\n", funcionarios->meuST1[i].funcNumbr);
     
             
-            preenchermes(&funcionarios);
+            preenchermes(&funcionarios, &timesheets);
         }else{
             printf("Não existe" );
         }

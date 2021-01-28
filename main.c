@@ -23,6 +23,7 @@ int main() {
     setlocale(LC_ALL,"");
     int opcao;
     Funcionario_st2 funcionarios = {.contador = 0};
+    Timesheet_st2 timesheets = {.contadorTS = 0};
 
     do {
         
@@ -42,13 +43,13 @@ int main() {
 
         switch (opcao) {
             case 0:
-                preenchermes(&funcionarios);
+                preenchermes(&funcionarios, &timesheets);
                 break;
             case 1:
                 criarFunc(&funcionarios);
                 break;
             case 2:
-                preencherTS(&funcionarios);
+                preencherTS(&funcionarios, &timesheets);
                 break;
             //case 3:
               //  listTimesheets(&funcionarios);

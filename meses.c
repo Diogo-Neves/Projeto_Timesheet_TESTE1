@@ -80,7 +80,7 @@ void dias_total(Funcionario_st1 funcionarios, int number, int dias, int mes ){
 
 
 
-void preenchermes(Funcionario_st2 *funcionarios){
+void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
     
     //setlocale(LC_ALL,"");
     printf("\n\n\nfuncMes\n");
