@@ -13,22 +13,23 @@
 #include <locale.h>
 
 
-void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets ){
+void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes, Timesheet_st2 *timesheets ){
     
-    //funcionarios->contador = number;
+    //int contador3 = 0;
+    int fixo = 0;
     
-    printf("[%d]  \n", number);
-    //funcionarios->contador = number;
-    printf("valor do contador %d\n", number);
-    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[number].funcNumbr );
+    printf("[%d]  \n", contador2);
+
+    printf("valor do contador %d\n", contador2);
+    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[contador2].funcNumbr );
     
     
-    timesheets->timesheets[number].funTS[number].funcNumbr = funcionarios->meuST1[number].funcNumbr;
-    printf("%d TIMESHEETID\n", timesheets->timesheets[number].funTS[number].funcNumbr);
-    //timesheets->timesheets[number].funTS[number].meuST1[number].funcNumbr = funcionarios->meuST1[number].funcNumbr;
-    //printf("FUNCIONARIO: %d -- ", timesheets->timesheets[___contador da timesheet___].funTS[___contador de funcionariosTS___].meuST1[FUNCSNR].funcNumbr );
+    timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr = funcionarios->meuST1[contador2].funcNumbr;
+    printf("%d TIMESHEETID\n", timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr);
+    //printf("%p apontador 1\n",);
+    //printf("%p apontador 2\n",funcionarios->meuST1[contador2].funcNumbr);
     
-    //number = funcionarios->meuST1[number].funcNumbr;
+    timesheets->timesheets->timesheetCode++;
     
     mes--;
     int primeirodia = 1;
@@ -46,7 +47,7 @@ void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Ti
 
     
     
-    char estadonoDia[10];
+    int estadonoDia;
  
     while(primeirodia <= dias){
         ret = mktime(&info);
@@ -58,65 +59,81 @@ void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Ti
         }
           
           
-       puts("\nIntegral:A\nParcial:B\nfalta:C\nfolga:D:");
-       scanf("%s", &estadonoDia);
+       puts("\n1:Integral\n2:Parcial\n3:falta\n4:folga:");
+       //scanf("%s", &estadonoDia);
        
-       funcionarios->meuST1[number].meiaJorn++;
-       
-       
-       printf("%d number\n", number);
-       //funcionarios.meiaJorn++;
+       //funcionarios->meuST1[contador2].meiaJorn++;
+       //CRIAR CICLO PARA JORNADAS ESPECIFICAS
        
        
+       //scanf("%d", &estadonoDia);
+           
+       
+       do{
+            printf("Introduza uma opcao: ");
+            scanf("%d",&estadonoDia);
+            //scanf("%*[^\n]"); scanf("%*c"); //limpar buffer do teclado
+         }while (estadonoDia <0 || estadonoDia>4);
+           
+          switch(estadonoDia){
+               case 1:
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].jornadaComp++;
+                   primeirodia = primeirodia +1;
+                   info.tm_mday   = primeirodia;
+                   break;
+               case 2:
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].meiaJorn++;
+                   primeirodia = primeirodia +1;
+                   info.tm_mday   = primeirodia;
+                   break;
+               case 3:
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].falta++;
+                   primeirodia = primeirodia +1;
+                   info.tm_mday   = primeirodia;
+                   break;
+               case 4:
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].folga++;
+                   primeirodia = primeirodia +1;
+                   info.tm_mday   = primeirodia;
+                   break;
+               default:S
+                   break;
+        } 
+        }
+        
        
        
-       //printf("%d\n", funcionarios.meiaJorn);
        
-       //printf("%d\n", funcionarios->meuST1[number].jornadaComp);
        
-       //dia = dia+1;
-       primeirodia = primeirodia +1;
-       //info.tm_wday   = dia;
-       info.tm_mday   = primeirodia;
        
-       //listarFuncs(funcionarios);
+       //timesheets->timesheets[timesheets->contadorTS].funTS[fixo].jornadaComp++;
+       
+       printf("%d number\n", contador2);
+
+       
+       
+
        
        //https://www.tutorialspoint.com/c_standard_library/c_function_mktime.htm
-       
-    }
-    
-    //printf("%d\n", funcionarios.meiaJorn);
-}
+     timesheets->contadorTS++;  
+ }
+    //timesheets->contadorTS++;
+
 
 
 
 void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2){
     
-    //setlocale(LC_ALL,"");
+    
+    //CONTADOR2 == CONTADOR DA POSIÇÃO DO FUNCIONÁRIO EM QUESTÃO
+
     printf("\n\n\nfuncMes\n");
-    //printf("pFuncs  %p \n", &funcionarios );
-    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
-    funcionarios->contador = contador2;
-    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
-    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
 
-    //printf("Func a tratar: %d", nFuncionario);
-    
-    
-  /*
-    printf("Funcionário Número: TESTE V2 %d  contador %d\n", funcionarios->meuST1[funcionarios->contador].funcNumbr, numero );
+    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
+    //funcionarios->contador = contador2;
+    //printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
 
-    funcionarios->meuST1[funcionarios->contador].meiaJorn++;
-    
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[0]);
-    printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
-    
-    
-    printf("Funcionário jornada+5 %d %d",(funcionarios->meuST1[funcionarios->contador].meiaJorn) , numero );
-    */
-   //struct tm t;
-   int mes, nr;
+   int mes;
    puts("Qual o mês em questão:");
    scanf("%d",&mes);
    

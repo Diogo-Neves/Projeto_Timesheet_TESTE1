@@ -34,7 +34,6 @@ int main() {
         printf("\n4 - Remover");
         printf("\n5 - Listar");
         printf("\n0 - Sair");
-        printf("\npFuncs  %p \n", &funcionarios );
         printf("\n------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 

@@ -43,7 +43,7 @@ void lerString(char *string, unsigned int tamanho, char *msg) {
 */
 
 void imprimirFuncs(Funcionario_st1 funcionario){
-    printf("Nr Func %d - Nome Func %-25s  jornada: %d \n", funcionario.funcNumbr, funcionario.funcNome, funcionario.meiaJorn);
+    printf("Nr Func %d - Nome Func %-25s \n", funcionario.funcNumbr, funcionario.funcNome);
 }
 void criarFunc(Funcionario_st2 *funcionarios) {
     
@@ -53,17 +53,10 @@ void criarFunc(Funcionario_st2 *funcionarios) {
     scanf("%d", &nrFunc);  
     funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;  
     
-    //funcionarios->meuST1[funcionarios->contador].meiaJorn++;
     
-    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
     printf("Nome de func:\n");   
     scanf(" %[^\n]s", nomeFunc);
-    
-    
   
-    
-    
     strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
     
  
@@ -79,26 +72,24 @@ void criarFunc(Funcionario_st2 *funcionarios) {
 
 void listarFuncs(Funcionario_st2 funcionarios) {
     int i;
-    for (i = 0; i <= funcionarios.contador; i++) {
+    for (i = 0; i < funcionarios.contador; i++) {
         printf("%d", i);        
         imprimirFuncs(funcionarios.meuST1[i]);
         }
-    //printf("%d", funcionarios.meuST1[0].meiaJorn);
 }
 
 void imprimirTimesheets(Timesheet_st1 timesheets, int i){
-    printf("Func Nr: %d Timesheet nr: %d  \n", timesheets.funTS[0].funcNumbr, timesheets.mesTS);
+    printf("Func Nr: %d Timesheet nr:%d/jornada completa:%d/Meia:%d/falta%d/folga:%d. \n", timesheets.funTS[0].funcNumbr, timesheets.timesheetCode, timesheets.funTS[0].jornadaComp, timesheets.funTS[0].meiaJorn, timesheets.funTS[0].falta, timesheets.funTS[0].folga );
 }
 
 
 
 void listTimesheets(Timesheet_st2 timesheets) {
     int i;
-    for (i = 0; i <= timesheets.contadorTS; i++) {
+    for (i = 0; i < timesheets.contadorTS; i++) {
         printf("%d", i);        
         imprimirTimesheets(timesheets.timesheets[i], i);
         }
-    //printf("%d", funcionarios.meuST1[0].meiaJorn);
 }
 
 
