@@ -13,13 +13,14 @@
 #include <locale.h>
 
 
-void dias_total(Funcionario_st1 funcionarios, int number, int dias, int mes ){
+void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes ){
     
     //funcionarios->contador = number;
     
     printf("[%d]  \n", number);
     //funcionarios->contador = number;
-    printf("Funcionario em dias total:%d TESTE\n", funcionarios.funcNumbr);
+    printf("valor do contador %d\n", number);
+    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[number].funcNumbr );
     
     //number = funcionarios->meuST1[number].funcNumbr;
     
@@ -54,13 +55,16 @@ void dias_total(Funcionario_st1 funcionarios, int number, int dias, int mes ){
        puts("\nIntegral:A\nParcial:B\nfalta:C\nfolga:D:");
        scanf("%s", &estadonoDia);
        
+       funcionarios->meuST1[number].meiaJorn++;
+       
+       
        printf("%d number\n", number);
-       funcionarios.meiaJorn++;
+       //funcionarios.meiaJorn++;
        
        
        
        
-       printf("%d\n", funcionarios.meiaJorn);
+       //printf("%d\n", funcionarios.meiaJorn);
        
        //printf("%d\n", funcionarios->meuST1[number].jornadaComp);
        
@@ -75,21 +79,23 @@ void dias_total(Funcionario_st1 funcionarios, int number, int dias, int mes ){
        
     }
     
-    printf("%d\n", funcionarios.meiaJorn);
+    //printf("%d\n", funcionarios.meiaJorn);
 }
 
 
 
-void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
+void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2){
     
     //setlocale(LC_ALL,"");
     printf("\n\n\nfuncMes\n");
-    printf("pFuncs  %p \n", &funcionarios );
-    printf("CONTADOR: %d\n",funcionarios->contador);
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
-    //funcionarios->meuST1[funcionarios->contador].meiaJorn++;
-    //funcionarios->meuST1[funcionarios->contador].meiaJorn++;
+    //printf("pFuncs  %p \n", &funcionarios );
+    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
+    funcionarios->contador = contador2;
+    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
+    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
+    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+
+    //printf("Func a tratar: %d", nFuncionario);
     
     
   /*
@@ -114,7 +120,8 @@ void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
    
    switch(mes){
        case 1 :
-           //dias_total(funcionarios->meuST1[funcionarios->contador], numero, 5, mes);
+           //Funcionario_st2 *funcionarios, int number, int dias, int mes 
+           dias_total(funcionarios, contador2, 31, mes);
            printf("teste1");
            break;
        /*case 2:

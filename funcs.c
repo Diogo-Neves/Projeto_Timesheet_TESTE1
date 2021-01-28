@@ -43,7 +43,7 @@ void lerString(char *string, unsigned int tamanho, char *msg) {
 */
 
 void imprimirFuncs(Funcionario_st1 funcionario){
-    printf("Nr Func %d - Nome Func %-25s  \n", funcionario.funcNumbr, funcionario.funcNome);
+    printf("Nr Func %d - Nome Func %-25s  jornada: %d \n", funcionario.funcNumbr, funcionario.funcNome, funcionario.meiaJorn);
 }
 void criarFunc(Funcionario_st2 *funcionarios) {
     
@@ -53,10 +53,10 @@ void criarFunc(Funcionario_st2 *funcionarios) {
     scanf("%d", &nrFunc);  
     funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;  
     
-    funcionarios->meuST1[funcionarios->contador].meiaJorn++;
+    //funcionarios->meuST1[funcionarios->contador].meiaJorn++;
     
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
+    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
     printf("Nome de func:\n");   
     scanf(" %[^\n]s", nomeFunc);
     
@@ -66,12 +66,12 @@ void criarFunc(Funcionario_st2 *funcionarios) {
     
     strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
     
-    pContador = &funcionarios->meuST1[funcionarios->contador]; 
+    //pContador = &funcionarios->meuST1[funcionarios->contador]; 
     
     funcionarios->contador++;   
-    printf("pFuncs  %f \n",funcionarios );
+    //printf("pFuncs  %f \n",funcionarios );
     printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
 }
 
 
@@ -79,8 +79,8 @@ void criarFunc(Funcionario_st2 *funcionarios) {
 
 void listarFuncs(Funcionario_st2 funcionarios) {
     int i;
-    for (i = 0; i < funcionarios.contador; i++) {
-        printf("%d", i);
+    for (i = 0; i <= funcionarios.contador; i++) {
+        printf("%d", i);        
         imprimirFuncs(funcionarios.meuST1[i]);
         }
     //printf("%d", funcionarios.meuST1[0].meiaJorn);
@@ -106,15 +106,15 @@ void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
     puts("Indique o seu Nr de Funcionário:");
     scanf(" %d", &nrFunc);
     //verificar se existe com uma função que ainda falta
-    printf("\n\n\nfuncTIMESHEET\n");
-    printf("pFuncs  %p \n", &funcionarios );
+    //printf("\n\n\nfuncTIMESHEET\n");
+    //printf("pFuncs  %p \n", &funcionarios );
     
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
+    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
     //funcionarios->contador--;
-    printf("valor do contador %d", funcionarios->contador );
-    printf("posiçao do contador:-1 %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    printf("posiçao do funNumber:-1 %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
+    printf("valor do contador %d\n",funcionarios->contador);
+    //printf("posiçao do contador:-1 %p\n", &funcionarios->meuST1[funcionarios->contador]);
+    //printf("posiçao do funNumber:-1 %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
     
     
     
@@ -124,11 +124,11 @@ void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
     for (i = 0; i < funcionarios->contador; i++) {
         if(funcionarios->meuST1[i].funcNumbr == nrFunc){
             printf("Funcionário Existe. ");
-            printf("posiçao do contador: %d\n", funcionarios->meuST1[i]);
-            printf("posiçao do funNumber: %d\n", funcionarios->meuST1[i].funcNumbr);
+            //printf("posiçao do contador: %d\n", funcionarios->meuST1[i]);
+            //printf("posiçao do funNumber: %d\n", funcionarios->meuST1[i].funcNumbr);
     
             
-            preenchermes(&funcionarios, &timesheets);
+            preenchermes(funcionarios, &timesheets, i );
         }else{
             printf("Não existe" );
         }

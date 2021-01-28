@@ -24,10 +24,30 @@ typedef struct {
     char funcNome[25];
 } Funcionario_st1;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 typedef struct {
     Funcionario_st1 meuST1[10];
     int contador;
 } Funcionario_st2 ;
+
+
+
+
+
+
 
 
 
@@ -50,8 +70,8 @@ typedef struct {
 
 void criarFunc(Funcionario_st2 *funcionarios);
 void listarFuncs(Funcionario_st2 funcionarios);
-void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets);
-void dias_total(Funcionario_st1 funcionarios, int number, int dias, int mes );
+void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
+void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes );
 
 //void lerString(char *string, unsigned int tamanho, char *msg);5
 

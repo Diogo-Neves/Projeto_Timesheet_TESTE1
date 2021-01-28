@@ -43,7 +43,7 @@ int main() {
 
         switch (opcao) {
             case 0:
-                preenchermes(&funcionarios, &timesheets);
+                //preenchermes(&funcionarios, &timesheets, &timesheets);
                 break;
             case 1:
                 criarFunc(&funcionarios);
