@@ -167,6 +167,7 @@ void preenchermes(Funcionario_st2 *funcionarios){
 
 
 //VERIFICAR REPOSITORIO
+//VERIFICAR REPOSITORIO
 
 
 //v3
@@ -195,7 +196,24 @@ void preenchermes(Funcionario_st2 *funcionarios){
 //v3//VERIFICAR REPOSITORIO
 
 
-//v3//VERIFICAR REPOSITORIO
+//v4//VERIFICAR REPOSITORIO
+
+
+//v3
+
+//v4//VERIFICAR REPOSITORIO
+
+
+//v3//v4//VERIFICAR REPOSITORIO
+
+
+//v3//v4//VERIFICAR REPOSITORIO
+
+
+//v3//v4//VERIFICAR REPOSITORIO
+
+
+//v3//v4//VERIFICAR REPOSITORIO
 
 
 //v3
