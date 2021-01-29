@@ -47,18 +47,28 @@ void imprimirFuncs(Funcionario_st1 funcionario){
 }
 void criarFunc(Funcionario_st2 *funcionarios) {
     
-    int nrFunc;
+    int nrFunc, *pContador;
     char nomeFunc[25];
     puts("Nr de func:");
     scanf("%d", &nrFunc);  
-    funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;      
+    funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;  
+    
+    
     printf("Nome de func:\n");   
-    scanf(" %[^\n]s", nomeFunc);  
-    strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);     
+    scanf(" %[^\n]s", nomeFunc);
+  
+    strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
+    
+ 
+    
     funcionarios->contador++;   
  
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);  
+    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
+   
 }
+
+
+
 
 void listarFuncs(Funcionario_st2 funcionarios) {
     int i;
@@ -69,8 +79,10 @@ void listarFuncs(Funcionario_st2 funcionarios) {
 }
 
 void imprimirTimesheets(Timesheet_st1 timesheets, int i){
-    printf("Func Nr: %d Timesheet nr:%d/jornada completa:%d/Meia:%d/falta%d/folga:%d. \n", timesheets.funTS[0].funcNumbr, timesheets.timesheetCode, timesheets.jornadaComp, timesheets.meiaJorn, timesheets.falta, timesheets.folga );
+    printf("Func Nr: %d Timesheet nr:%d/jornada completa:%d/Meia:%d/falta%d/folga:%d. \n", timesheets.funTS[0].funcNumbr, timesheets.timesheetCode, timesheets.funTS[0].jornadaComp, timesheets.funTS[0].meiaJorn, timesheets.funTS[0].falta, timesheets.funTS[0].folga );
 }
+
+
 
 void listTimesheets(Timesheet_st2 timesheets) {
     int i;

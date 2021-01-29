@@ -19,18 +19,18 @@
 
 
 typedef struct {
-    //int jornadaComp, meiaJorn, falta, folga;
+    int jornadaComp, meiaJorn, falta, folga;
     int funcNumbr;
     char funcNome[25];
-} Funcionario_st1;  //pessoa
+} Funcionario_st1;
 
 
 
 
 typedef struct {
-    Funcionario_st1 meuST1[10]; 
+    Funcionario_st1 meuST1[10];
     int contador;
-} Funcionario_st2 ;   //funcionarios
+} Funcionario_st2 ;
 
 
 

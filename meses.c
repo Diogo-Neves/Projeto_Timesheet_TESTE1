@@ -17,12 +17,19 @@ void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes,
     
     //int contador3 = 0;
     int fixo = 0;
+    
+    printf("[%d]  \n", contador2);
+
     printf("valor do contador %d\n", contador2);
-    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[contador2].funcNumbr ); 
+    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[contador2].funcNumbr );
+    
+    
     timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr = funcionarios->meuST1[contador2].funcNumbr;
     printf("%d TIMESHEETID\n", timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr);
-    timesheets->timesheets[timesheets->contadorTS].timesheetCode = timesheets->contadorTS+1;
+    //printf("%p apontador 1\n",);
+    //printf("%p apontador 2\n",funcionarios->meuST1[contador2].funcNumbr);
     
+    timesheets->timesheets->timesheetCode++;
     
     mes--;
     int primeirodia = 1;
@@ -53,7 +60,13 @@ void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes,
           
           
        puts("\n1:Integral\n2:Parcial\n3:falta\n4:folga:");
-
+       //scanf("%s", &estadonoDia);
+       
+       //funcionarios->meuST1[contador2].meiaJorn++;
+       //CRIAR CICLO PARA JORNADAS ESPECIFICAS
+       
+       
+       //scanf("%d", &estadonoDia);
            
        
        do{
@@ -64,34 +77,45 @@ void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes,
            
           switch(estadonoDia){
                case 1:
-                   timesheets->timesheets[timesheets->contadorTS].jornadaComp++;
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].jornadaComp++;
                    primeirodia = primeirodia +1;
                    info.tm_mday   = primeirodia;
                    break;
                case 2:
-                   timesheets->timesheets[timesheets->contadorTS].meiaJorn++;
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].meiaJorn++;
                    primeirodia = primeirodia +1;
                    info.tm_mday   = primeirodia;
                    break;
                case 3:
-                   timesheets->timesheets[timesheets->contadorTS].falta++;
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].falta++;
                    primeirodia = primeirodia +1;
                    info.tm_mday   = primeirodia;
                    break;
                case 4:
-                   timesheets->timesheets[timesheets->contadorTS].folga++;
+                   timesheets->timesheets[timesheets->contadorTS].funTS[fixo].folga++;
                    primeirodia = primeirodia +1;
                    info.tm_mday   = primeirodia;
                    break;
-               default:
+               default:S
                    break;
         } 
         }
-           
+        
+       
+       
+       
+       
+       
+       //timesheets->timesheets[timesheets->contadorTS].funTS[fixo].jornadaComp++;
+       
+       printf("%d number\n", contador2);
+
+       
+       
+
+       
        //https://www.tutorialspoint.com/c_standard_library/c_function_mktime.htm
-     
-       timesheets->contadorTS++;  
-     
+     timesheets->contadorTS++;  
  }
     //timesheets->contadorTS++;
 
