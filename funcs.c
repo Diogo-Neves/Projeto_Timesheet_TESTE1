@@ -50,13 +50,16 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
     //int nrFunc, *pContador;
     int nrFunc;
     Pessoa *pNovo_Realloc;
-    //char nomeFunc[25];
-    puts("Nr de func:");
-    scanf("%d", &nrFunc);  
+    char nomeFunc[25];
+    //puts("Nr de func:");
+    //scanf("%d", &nrFunc);  
     //contadorFuncionarios = *Total_Funcionarios;
     *Total_Funcionarios +=1;
     printf("indiceFuncsCRIAR %d \n", *contadorFuncionarios);
     pNovo_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));  
+    
+    
+    
     
     if (pNovo_Realloc == NULL) //verificar se foi bem ou mal sucedido
         {
@@ -67,44 +70,100 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
         {
             *arrPessoa = pNovo_Realloc;
         }
-    (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
-    printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
-    printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
-    verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, nrFunc);
     
-    /*printf("Nome de func:\n");   
+    
+    if( *contadorFuncionarios < 1){
+        puts("Nr de func:");
+        scanf("%d", &nrFunc);  
+        
+        (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
+        printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
+        printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
+
+
+        printf("Nome de func:\n");   
+        scanf(" %[^\n]s", nomeFunc);
+
+        strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);    
+
+
+
+
+        //*contadorFuncionarios += 1;
+    }else{
+        printf("São mais");
+        puts("Nr de func:");
+        scanf("%d", &nrFunc); 
+        
+        
+        nrFunc = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, nrFunc);
+        
+        (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
+        printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
+        printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
+
+
+        printf("Nome de func:\n");   
+        scanf(" %[^\n]s", nomeFunc);
+
+        strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);
+        
+        //*contadorFuncionarios += 1;
+        
+    }
+    *contadorFuncionarios += 1;
+    //(*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
+    /*printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
+    printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
+    
+    
+    printf("Nome de func:\n");   
     scanf(" %[^\n]s", nomeFunc);
   
-    strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
+    strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);    
     
  
     
-    funcionarios->contador++;   
- 
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);*/
-    *contadorFuncionarios += 1;
+    
+    *contadorFuncionarios += 1;*/
    
 }
 
 
-void verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
+int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
     
     int i;
     
     printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
     printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
-    //FuncNmbr =2;
-    //printf("Total Funcs %d \n", Total_Funcionarios);
+    //*contadorFuncionarios = 0;
+
+    
+    
+    int qqcoisa = FuncNmbr;
+    
     
     for(i = 0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == FuncNmbr){
-        printf("Funcionário existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
-    }else{
-        printf("\nFuncionário Não existe %d", i);
-    } 
+            printf("Funcionário já existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
+            puts("Novo user:");
+            scanf("%d", &FuncNmbr);
+            qqcoisa = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, FuncNmbr);
+
+        
+        
+        }else{
+            printf("\nFuncionário Não existe %d", i);
+            printf("Return do else: %d", FuncNmbr);
+            
+            
+
+        }
+     
+        
     }
     
-    
+    return qqcoisa;
 }
 
 
@@ -114,7 +173,8 @@ void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
     int i;
     
     for (i = 0; i < *Total_Funcionarios; i++) {
-        printf("Funcid %d i: %d  \n",(*arrPessoa)[i].funcNumbr, i);        
+        printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
+        printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);
         
 }
 }
