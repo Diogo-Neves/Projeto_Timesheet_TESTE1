@@ -42,19 +42,37 @@ void lerString(char *string, unsigned int tamanho, char *msg) {
 }
 */
 
-void imprimirFuncs(Funcionario_st1 funcionario){
+/*void imprimirFuncs(Funcionario_st1 funcionario){
     printf("Nr Func %d - Nome Func %-25s \n", funcionario.funcNumbr, funcionario.funcNome);
-}
-void criarFunc(Funcionario_st2 *funcionarios) {
+}*/
+void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios) {
     
-    int nrFunc, *pContador;
-    char nomeFunc[25];
+    //int nrFunc, *pContador;
+    int nrFunc;
+    Pessoa *pNovo_Realloc;
+    //char nomeFunc[25];
     puts("Nr de func:");
     scanf("%d", &nrFunc);  
-    funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;  
+    //contadorFuncionarios = *Total_Funcionarios;
+    *Total_Funcionarios +=1;
+    printf("indiceFuncsCRIAR %d \n", *contadorFuncionarios);
+    pNovo_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));  
     
+    if (pNovo_Realloc == NULL) //verificar se foi bem ou mal sucedido
+        {
+            printf("Erro\n");
+            exit(0);
+        }
+        else //este else so esta aqui para facilitar a leitura
+        {
+            *arrPessoa = pNovo_Realloc;
+        }
+    (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
+    printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
+    printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
+    verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, nrFunc);
     
-    printf("Nome de func:\n");   
+    /*printf("Nome de func:\n");   
     scanf(" %[^\n]s", nomeFunc);
   
     strcpy(funcionarios->meuST1[funcionarios->contador].funcNome, nomeFunc);    
@@ -63,21 +81,45 @@ void criarFunc(Funcionario_st2 *funcionarios) {
     
     funcionarios->contador++;   
  
-    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
+    printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);*/
+    *contadorFuncionarios += 1;
    
 }
 
 
-
-
-void listarFuncs(Funcionario_st2 funcionarios) {
+void verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
+    
     int i;
-    for (i = 0; i < funcionarios.contador; i++) {
-        printf("%d", i);        
-        imprimirFuncs(funcionarios.meuST1[i]);
-        }
+    
+    printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
+    printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
+    //FuncNmbr =2;
+    //printf("Total Funcs %d \n", Total_Funcionarios);
+    
+    for(i = 0; i < *Total_Funcionarios; i++){
+        if((*arrPessoa)[i].funcNumbr == FuncNmbr){
+        printf("Funcionário existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
+    }else{
+        printf("\nFuncionário Não existe %d", i);
+    } 
+    }
+    
+    
 }
 
+
+
+
+void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
+    int i;
+    
+    for (i = 0; i < *Total_Funcionarios; i++) {
+        printf("Funcid %d i: %d  \n",(*arrPessoa)[i].funcNumbr, i);        
+        
+}
+}
+
+/*
 void imprimirTimesheets(Timesheet_st1 timesheets, int i){
     printf("Func Nr: %d Timesheet nr:%d/jornada completa:%d/Meia:%d/falta%d/folga:%d. \n", timesheets.funTS[0].funcNumbr, timesheets.timesheetCode, timesheets.funTS[0].jornadaComp, timesheets.funTS[0].meiaJorn, timesheets.funTS[0].falta, timesheets.funTS[0].folga );
 }
@@ -90,7 +132,7 @@ void listTimesheets(Timesheet_st2 timesheets) {
         printf("%d", i);        
         imprimirTimesheets(timesheets.timesheets[i], i);
         }
-}
+}*/
 
 
 
@@ -104,7 +146,7 @@ void listTimesheets(Timesheet_st2 timesheets) {
 
 
 
-void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
+/*void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
     
     int nrFunc, i;
     
@@ -141,7 +183,7 @@ void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
         
         
 }
-}
+}*/
     //funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;
     
     

@@ -13,7 +13,7 @@
 #include <locale.h>
 
 
-void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes, Timesheet_st2 *timesheets ){
+/*void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes, Timesheet_st2 *timesheets ){
     
     //int contador3 = 0;
     int fixo = 0;
@@ -120,9 +120,9 @@ void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes,
     //timesheets->contadorTS++;
 
 
+*/
 
-
-void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2){
+/*void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2){
     
     
     //CONTADOR2 == CONTADOR DA POSIÇÃO DO FUNCIONÁRIO EM QUESTÃO
@@ -146,7 +146,7 @@ void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int 
            //Funcionario_st2 *funcionarios, int number, int dias, int mes 
            dias_total(funcionarios, contador2, 31, mes, timesheets);
            printf("teste1");
-           break;
+           break;*/
        /*case 2:
            dias_total(28, mes, funcionarios, nr);
            break;
@@ -180,14 +180,14 @@ void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int 
        case 12:
            dias_total(31, mes, funcionarios, nr);
            break;*/
-       default:
+       /*default:
            printf("Erro");
            break;
                
            
    }
    
-}
+}*/
 
  
 ///ola pessoal

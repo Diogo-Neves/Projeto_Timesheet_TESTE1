@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Menu_Funcionarios.o \
 	${OBJECTDIR}/funcs.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/meses.o
@@ -63,6 +64,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/timesheet_proj1.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/timesheet_proj1 ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Menu_Funcionarios.o: Menu_Funcionarios.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Menu_Funcionarios.o Menu_Funcionarios.c
 
 ${OBJECTDIR}/funcs.o: funcs.c
 	${MKDIR} -p ${OBJECTDIR}

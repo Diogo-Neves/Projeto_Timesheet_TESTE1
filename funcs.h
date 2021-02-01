@@ -22,21 +22,21 @@ typedef struct {
     int jornadaComp, meiaJorn, falta, folga;
     int funcNumbr;
     char funcNome[25];
-} Funcionario_st1;
+} Pessoa;
 
 
 
 
 typedef struct {
-    Funcionario_st1 meuST1[10];
+    Pessoa *Pessoas;
     int contador;
-} Funcionario_st2 ;
+} Funcionarios ;
 
 
 
 
 
-typedef struct {
+/*typedef struct {
     int jornadaComp, meiaJorn, falta, folga;
     int mesTS, anoTS, timesheetCode;
     Funcionario_st1 funTS[10];
@@ -46,18 +46,18 @@ typedef struct {
     Timesheet_st1 timesheets[10];
     int contadorTS;
 } Timesheet_st2 ;
+*/
 
 
 
 
 
-
-
-void criarFunc(Funcionario_st2 *funcionarios);
-void listarFuncs(Funcionario_st2 funcionarios);
-void listTimesheets(Timesheet_st2 timesheets);
-void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
-void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets );
+int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
+//void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
+//void listarFuncs(Funcionario_st2 funcionarios);
+//void listTimesheets(Timesheet_st2 timesheets);
+//void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
+//void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets );
 
 //void lerString(char *string, unsigned int tamanho, char *msg);5
 

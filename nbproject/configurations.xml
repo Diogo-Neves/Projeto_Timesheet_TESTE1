@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Menu_Funcs_header.h</itemPath>
       <itemPath>funcs.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -13,6 +14,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Menu_Funcionarios.c</itemPath>
       <itemPath>funcs.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>meses.c</itemPath>
@@ -39,6 +41,10 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="Menu_Funcionarios.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Menu_Funcs_header.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="funcs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.h" ex="false" tool="3" flavor2="0">
@@ -68,6 +74,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Menu_Funcionarios.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Menu_Funcs_header.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="funcs.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.h" ex="false" tool="3" flavor2="0">
