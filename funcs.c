@@ -91,7 +91,7 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
 
         //*contadorFuncionarios += 1;
     }else{
-        printf("São mais");
+        //printf("São mais");
         puts("Nr de func:");
         scanf("%d", &nrFunc); 
         
@@ -134,8 +134,8 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
     
     int i;
     
-    printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
-    printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
+    //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
+    //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
     //*contadorFuncionarios = 0;
 
     
@@ -145,19 +145,13 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
     
     for(i = 0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == FuncNmbr){
-            printf("Funcionário já existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
-            puts("Novo user:");
+            printf("Funcionário %d já existe.\n", (*arrPessoa)[i].funcNumbr);
+            puts("NOVO* Nr de func:");
             scanf("%d", &FuncNmbr);
             qqcoisa = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, FuncNmbr);
 
         
         
-        }else{
-            printf("\nFuncionário Não existe %d", i);
-            printf("Return do else: %d", FuncNmbr);
-            
-            
-
         }
      
         
@@ -178,6 +172,87 @@ void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
         
 }
 }
+
+
+
+
+
+void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+    int escolha, nfunc, existenciaIndice = -1, existenciaIndice2 = -1;
+    char nomeFunc[25];
+    
+    puts("Pretende alterar: Nº (1) Nome (2)");
+    scanf("%d", &escolha);
+    puts("Nr de funcionário:");
+    scanf("%d", &nfunc);
+    
+    existenciaIndice = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
+    
+    if(existenciaIndice >= 0 ){    
+            switch(escolha){
+        case 1:
+            puts("Novo Nr:");
+            scanf("%d", &nfunc);
+            
+            //existenciaIndice = -1;
+            existenciaIndice2 = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
+            printf("\nexistIndice %d \n", existenciaIndice);
+            if(existenciaIndice2 >= 0 ){
+                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+                printf("Já existe \n");
+            }else{
+                (*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+            }
+                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+            break;
+        case 2:
+            puts("Novo Nome:");
+            scanf(" %[^\n]s", nomeFunc);
+            strcpy((*arrPessoa)[existenciaIndice].funcNome, nomeFunc);
+            break;
+        default:
+            printf("escolha errada");
+    }
+    }else{
+        printf("\nfuncionario nao existe");
+    }
+
+    
+}
+
+int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
+    
+    int i;
+    
+    //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
+    //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
+    //*contadorFuncionarios = 0;
+
+    
+    
+    //int qqcoisa = FuncNmbr;
+    
+    
+    for(i = 0; i < *Total_Funcionarios; i++){
+        if((*arrPessoa)[i].funcNumbr == FuncNmbr){
+            //printf("Funcionário já existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
+            //puts("Novo user:");
+            //scanf("%d", &FuncNmbr);
+            //qqcoisa = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, FuncNmbr);
+            return i;
+        
+        
+        }
+     
+        
+    }
+    
+    return -1;
+}
+
+
+
+
 
 /*
 void imprimirTimesheets(Timesheet_st1 timesheets, int i){

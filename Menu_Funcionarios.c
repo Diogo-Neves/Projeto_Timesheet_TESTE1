@@ -28,7 +28,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
         
         printf("\nFuncionários------------------------------------------------------");
         printf("\n1 - Inserir Funcionários");
-        printf("\n2 - ");
+        printf("\n2 - Atualizar dados");
         printf("\n3 - ");
         printf("\n4 - ");
         printf("\n5 - Listar");
@@ -46,10 +46,10 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
             case 1:
                 criarFunc(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
-            /*case 2:
-                preencherTS(&funcionarios, &timesheets);
+            case 2:
+                atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
-            case 3:
+            /*case 3:
                 listTimesheets(timesheets);
                 break;
             //case 4:
