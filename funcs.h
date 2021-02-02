@@ -33,19 +33,21 @@ typedef struct {
 
 
 
-typedef struct {
-    int jornadaComp, meiaJorn, falta, folga;
-    int mesTS, anoTS, timesheetCode;
-    //Pessoa * arrPessoa;
-    int funcCode;
-} Timesheet;
+
 
 typedef struct {
     //int jornadaComp, meiaJorn, falta, folga;
     int funcNumbr;
     char funcNome[25];
-    Timesheet * Timesheets_pessoa;
+    //Timesheet * Timesheets_pessoa;
 } Pessoa;
+
+typedef struct {
+    int jornadaComp, meiaJorn, falta, folga;
+    int mesTS, anoTS, timesheetCode;
+    //Pessoa * Pessoas;
+    int funcCode;
+} Timesheet;
 
 //saver2 = &(*arrPessoa)[].funcNumbr;
 //(*arrTimesheet)[].funcCode = *saver2;
@@ -60,7 +62,7 @@ typedef struct {
 
 
 void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
-void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets);
+void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets);
 
 int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
 int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios );
@@ -72,6 +74,16 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
 
 //void lerString(char *string, unsigned int tamanho, char *msg);5
 
+void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
+int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);
+void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios);
+void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
+int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
+int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
+    
+    
+    
+    
 
 
 

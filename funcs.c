@@ -244,12 +244,7 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
     //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
     //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
     //*contadorFuncionarios = 0;
-
-    
-    
-    //int qqcoisa = FuncNmbr;
-    
-    
+    //int qqcoisa = FuncNmbr;  
     for(i = 0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == FuncNmbr){
             //printf("Funcionário já existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
@@ -260,11 +255,10 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
         
         
         }
-     
-        
     }
-    
     return -1;
+    
+
 }
 
 

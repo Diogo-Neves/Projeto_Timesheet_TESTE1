@@ -9,6 +9,7 @@
 #include <string.h>
 #include <time.h>
 
+//#include "Menu_Funcs_header.h"
 //#include "Menu_TS_header.h"
 #include "funcs.h"
 #include <locale.h>
@@ -17,25 +18,23 @@
 void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios ) {
     
     Timesheet *PNovaTS_Realloc;
-    int nfunc, *saver, *saver2, existenciaIndice = -1;
+    int nfunc, indiceFuncao, contador1, contador2;
+    PNovaTS_Realloc = realloc(*arrTimesheet, (*totalTimesheets) * sizeof(Timesheet)); 
+    
     /*saver = (int *) malloc(1 * sizeof (int));
     saver2 = (int *) malloc(1 * sizeof (int));
-    
-     
-     
     saver2 = &(*arrPessoa)[0].funcNumbr;
     (*arrTimesheet)[0].funcCode = *saver2;*/
     //Pessoa Nova;
-    (*arrPessoa)[*totalTimesheets].Timesheets_pessoa = malloc(*totalTimesheets *sizeof (Timesheet));
-    
-    
+    //(*arrTimesheet)[*totalTimesheets] = (Pessoa *) malloc(1*sizeof (Pessoa)); 
     //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa = (struct Timesheet*) malloc(1 *sizeof (struct Timesheet));
             //arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
     
     //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa[0] = 0;
-    *totalTimesheets += 1;
+    //*totalTimesheets += 1;
+    //PNovaTS_Realloc = (*arrPessoa)[*totalTimesheets].Timesheets_pessoa = realloc(((*arrPessoa)[*totalTimesheets].Timesheets_pessoa), *totalTimesheets *sizeof (Timesheet));
     
-    /*PNovaTS_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));
+    //PNovaTS_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));
     
         if (PNovaTS_Realloc == NULL) //verificar se foi bem ou mal sucedido
         {
@@ -44,43 +43,49 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
         }
         else //este else so esta aqui para facilitar a leitura
         {
-            *arrPessoa = PNovaTS_Realloc;
-        }*/
+            *arrTimesheet = PNovaTS_Realloc;
+        }
     
     printf("*contadorTimesheets %d\n", *contadorTimesheets);
-    puts("Indique o nr de func:");
-    scanf("%d", &nfunc);
-    
 
-    existenciaIndice = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
-    
-        if(existenciaIndice >= 0 ){    
-    
-            (*arrPessoa)[existenciaIndice].Timesheets_pessoa[0].timesheetCode = *contadorTimesheets+1;
-
-            //(*arrPessoa)[0].Timesheets_pessoa[0].timesheetCode = *contadorTimesheets;
-            printf("%d SAVERRRRRRR \n",(*arrPessoa)[existenciaIndice].Timesheets_pessoa[0].timesheetCode );
-            //existenciaIndice2 = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
-            
+        puts("Nr de func:");
+        scanf("%d", &nfunc); 
+        
+        
+        indiceFuncao = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
+        
+        contador1 = *contadorTimesheets;
+        
+        if(indiceFuncao > -1){
+            *totalTimesheets += 1;
+            (*arrTimesheet)[contador1].funcCode = (*arrPessoa)[indiceFuncao].funcNumbr;
+            (*arrTimesheet)[contador1].timesheetCode = contador1+1;
+            printf("NrFuncTS %d\n", (*arrTimesheet)[contador1].funcCode);      
+            printf("Timesheet nr %d\n", contador1);
+            *contadorTimesheets += 1;
         }else{
-        printf("\nfuncionario nao existe");
-    }
+            printf("Nao existe");
+        }
+         
+            
+
  
     
-    *contadorTimesheets += 1;
+    
     
 
 
 };
 
-void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets){
-    int *saver2;
-    
-    /*saver2 = &(*arrPessoa)[0].funcNumbr;
-    (*arrTimesheet)[0].funcCode = *saver2;*/
-    printf("funcionario [0] CODIGO DA PRIMEIRA %d ID: %d ", (*arrPessoa)[0].Timesheets_pessoa[0].timesheetCode, (*arrPessoa)[0].funcNumbr );
-}
+void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets){
 
+    
+        for (int i = 0; i < *totalTimesheets; i++) {
+             printf("Timesheet ID: %d FuncID: %d \n",(*arrTimesheet)[i].timesheetCode, (*arrTimesheet)[i].funcCode);
+            
+       
+   }
+}
 
 
 

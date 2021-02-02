@@ -16,6 +16,8 @@
 int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios ){
     setlocale(LC_ALL,"");
     int opcao;
+    
+    //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa = malloc(*totalTimesheets *sizeof (Timesheet));
     //Pessoa *arrPessoa;
     //Funcionario_st2 funcionarios = {.contador = 0};
     //Timesheet_st2 timesheets = {.contadorTS = 0};
@@ -57,7 +59,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
               //  removerAlunos(&alunos);
                 //break;*/
             case 5:
-               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets);
+               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
                break;
             default:
                 printf("\nOpcão invalida!");
