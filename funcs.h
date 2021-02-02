@@ -17,42 +17,50 @@
 
 #define MSG_OBTER_NOME              "Insira o nome do aluno: "
 
+//int *saver2;
 
 typedef struct {
-    int jornadaComp, meiaJorn, falta, folga;
+    //int jornadaComp, meiaJorn, falta, folga;
     int funcNumbr;
     char funcNome[25];
 } Pessoa;
 
 
 
-
+/*
 typedef struct {
     Pessoa *Pessoas;
     int contador;
 } Funcionarios ;
+*/
 
 
 
+
+typedef struct {
+    int jornadaComp, meiaJorn, falta, folga;
+    int mesTS, anoTS, timesheetCode;
+    //Pessoa * arrPessoa;
+    int funcCode;
+} Timesheet;
+
+//saver2 = &(*arrPessoa)[].funcNumbr;
+//(*arrTimesheet)[].funcCode = *saver2;
 
 
 /*typedef struct {
-    int jornadaComp, meiaJorn, falta, folga;
-    int mesTS, anoTS, timesheetCode;
-    Funcionario_st1 funTS[10];
-} Timesheet_st1;
-
-typedef struct {
-    Timesheet_st1 timesheets[10];
+    Timesheet timesheets[10];
     int contadorTS;
 } Timesheet_st2 ;
 */
 
 
 
-
+void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
+void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets);
 
 int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios );
 //void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
 //void listarFuncs(Funcionario_st2 funcionarios);
 //void listTimesheets(Timesheet_st2 timesheets);

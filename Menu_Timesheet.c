@@ -13,7 +13,7 @@
 /*
  * 
  */
-int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios ){
     setlocale(LC_ALL,"");
     int opcao;
     //Pessoa *arrPessoa;
@@ -22,16 +22,17 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
     //int totalFuncionarios = 0;
     //int contadorFuncionarios = 0;
     
+    
     //arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
 
     do {
         
-        printf("\nFuncionários------------------------------------------------------");
-        printf("\n1 - Inserir Funcionários");
-        printf("\n2 - Atualizar dados");
-        printf("\n3 - Eliminar");
+        printf("\nTimesheets------------------------------------------------------");
+        printf("\n1 - Inserir nova timesheet");
+        printf("\n2 - Atualizar timesheet");
+        printf("\n3 ");
         printf("\n4 - ");
-        printf("\n5 - Listar");
+        printf("\n5 - Listar Timesheets");
         printf("\n0 - Sair");
         printf("\n------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
@@ -44,9 +45,9 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
                 //preenchermes(&funcionarios, &timesheets, &timesheets);
                 break;
             case 1:
-                criarFunc(arrPessoa, Total_Funcionarios, contadorFuncionarios);
+                criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
-            case 2:
+            /*case 2:
                 atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
             case 3:
@@ -54,9 +55,9 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
                 break;
             //case 4:
               //  removerAlunos(&alunos);
-                //break;
+                //break;*/
             case 5:
-               listarFuncs(arrPessoa, Total_Funcionarios);
+               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets);
                break;
             default:
                 printf("\nOpcão invalida!");

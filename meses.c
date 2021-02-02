@@ -9,8 +9,83 @@
 #include <string.h>
 #include <time.h>
 
+//#include "Menu_TS_header.h"
 #include "funcs.h"
 #include <locale.h>
+
+
+void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios ) {
+    
+    Timesheet *PNovaTS_Realloc;
+    int nfunc, *saver, *saver2, existenciaIndice = -1;
+    saver = (int *) malloc(1 * sizeof (int));
+    saver2 = (int *) malloc(1 * sizeof (int));
+    
+    saver2 = &(*arrPessoa)[0].funcNumbr;
+    (*arrTimesheet)[0].funcCode = *saver2;
+    
+    *totalTimesheets += 1;
+    
+    PNovaTS_Realloc = realloc(*arrTimesheet, (*totalTimesheets) * sizeof(Timesheet));
+    
+        if (PNovaTS_Realloc == NULL) //verificar se foi bem ou mal sucedido
+        {
+            printf("Erro\n");
+            exit(0);
+        }
+        else //este else so esta aqui para facilitar a leitura
+        {
+            *arrTimesheet = PNovaTS_Realloc;
+        }
+    
+    printf("*contadorTimesheets %d\n", *contadorTimesheets);
+    puts("Indique o nr de func:");
+    scanf("%d", &nfunc);
+    
+
+    existenciaIndice = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
+    
+    if(existenciaIndice >= 0 ){    
+            
+        printf("%d SAVERRRRRRR \n",(*arrTimesheet)[0].funcCode);
+        //existenciaIndice2 = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
+            
+    }else{
+        printf("\nfuncionario nao existe");
+    }
+    //&arrPessoa[0]->funcNumbr = &arrTimesheet[*contadorTimesheets]->arrPessoa[0].funcNumbr;
+    
+    //printf("%d SAVERRRRRRR \n",(*arrTimesheet)[0].funcCode);
+    
+    //(*arrTimesheet)[*contadorTimesheets].funcCode = (*arrPessoa)[0].funcNumbr;
+    
+    //(*arrTimesheet)[i]. = b
+    
+    //printf("*contadorTimesheets %d\n", *contadorTimesheets);
+    
+    //(*arrTimesheet)[0].arrPessoas->funcNumbr
+    //saver = &(*arrPessoa)[0].funcNumbr.  ;
+    //printf("saver %d \n", *saver);
+    //saver2 = &(*arrTimesheet)[*contadorTimesheets].funCode;
+    //(*arrTimesheet)[*contadorTimesheets].funCode = *saver;
+    //printf("saver2 v1 %d \n", *saver2);
+    //saver2 = *saver;
+    //printf("saver2 v1 %d \n", *saver2);
+    //nfunc = &(*arrPessoa)[0].funcNumbr);
+    
+
+
+};
+
+void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets){
+    int *saver2;
+    
+    saver2 = &(*arrPessoa)[0].funcNumbr;
+    (*arrTimesheet)[0].funcCode = *saver2;
+    printf("funcionario [0] %d", (*arrTimesheet)[0].funcCode);
+}
+
+
 
 
 /*void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes, Timesheet_st2 *timesheets ){

@@ -56,6 +56,8 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
     //contadorFuncionarios = *Total_Funcionarios;
     *Total_Funcionarios +=1;
     printf("indiceFuncsCRIAR %d \n", *contadorFuncionarios);
+        printf("indiceTOTAL EM CRIAR %d \n", *Total_Funcionarios);
+
     pNovo_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));  
     
     
@@ -166,11 +168,24 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
 void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
     int i;
     
+    //printf("%p apontador pessoa\n", arrPessoa);
+    //printf("%p apontador funcs", Total_Funcionarios);
+    
+    //printf("total funcs antes de free: %d", *Total_Funcionarios);
+    
+    //Total_Funcionarios = (int *) malloc(sizeof (int));
+    
+ 
     for (i = 0; i < *Total_Funcionarios; i++) {
-        printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
-        printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);
+        if((*arrPessoa)[i].funcNumbr != NULL) {
+            printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
+            printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);  
+        }
+        //printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
+        //printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);
+    }
+    
         
-}
 }
 
 
@@ -216,7 +231,9 @@ void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFu
     }else{
         printf("\nfuncionario nao existe");
     }
-
+    
+    //free(*arrPessoa);
+    //*arrPessoa = NULL;
     
 }
 
@@ -251,6 +268,21 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
 }
 
 
+int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+    
+    int idapagar;
+    puts("Utilizador a apagar: ");
+    scanf("%d", &idapagar);
+    
+    for(int i=0; i < * Total_Funcionarios; i++){
+        if((*arrPessoa)[i].funcNumbr == idapagar){
+            //(*arrPessoa)[i].funcNumbr = NULL;
+            strcpy((*arrPessoa)[i].funcNome, "APAGADO");
+        }
+    }
+    
+    
+}
 
 
 

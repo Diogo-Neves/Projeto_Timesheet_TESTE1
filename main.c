@@ -23,18 +23,42 @@ int main() {
     setlocale(LC_ALL,"");
     int opcao;
     Pessoa *arrPessoa;
+    Timesheet *arrTimesheet;
     //Funcionario_st2 funcionarios = {.contador = 0};
     //Timesheet_st2 timesheets = {.contadorTS = 0};
-    int totalFuncionarios = 0;
-    int contadorFuncionarios = 0;
+    //int *totalFUNCS = NULL;
+    //int *contadorFUNCS = NULL;
+    
+    int* totalFuncionarios = malloc(sizeof (int));
+    int* contadorFuncionarios = malloc(sizeof (int));
+    
+    int totalFUNCS = 0;
+    int contadorFUNCS = 0;
+    *totalFuncionarios = totalFUNCS;
+    *contadorFuncionarios = contadorFUNCS;
+    
+    int* totalTimesheets = malloc(sizeof (int));
+    int* contadorTimesheets = malloc(sizeof (int));
+    //totalFUNCS
+    //contadorFUNCS
+     
+    
+    int totalTS = 0;
+    int contadorTS = 0;
+
+    
+    printf("%d", *totalFuncionarios);
     
     arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
+    arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
+    *totalTimesheets = totalTS;
+    *contadorTimesheets = contadorTS; 
 
     do {
         
         printf("\nFuncionários------------------------------------------------------");
         printf("\n1 - Funcionarios");
-        printf("\n2 - Preencher Timesheet");
+        printf("\n2 - Timesheets");
         printf("\n3 - Listar Timesheets");
         printf("\n4 - Remover");
         printf("\n5 - Listar");
@@ -50,12 +74,12 @@ int main() {
                 //preenchermes(&funcionarios, &timesheets, &timesheets);
                 break;
             case 1:
-                menu_funcionarios(&arrPessoa, &totalFuncionarios, &contadorFuncionarios);
+                menu_funcionarios(&arrPessoa, totalFuncionarios, contadorFuncionarios);
                 break;
-            /*case 2:
-                preencherTS(&funcionarios, &timesheets);
+            case 2:
+                menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios, contadorFuncionarios);
                 break;
-            case 3:
+            /*case 3:
                 listTimesheets(timesheets);
                 break;
             //case 4:
@@ -70,7 +94,8 @@ int main() {
 
     } while (opcao != 0);
     
-
+    free(arrPessoa);
+    arrPessoa = NULL;
     return 0;
 }
 

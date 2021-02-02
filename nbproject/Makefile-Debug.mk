@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Menu_Funcionarios.o \
+	${OBJECTDIR}/Menu_Timesheet.o \
 	${OBJECTDIR}/funcs.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/meses.o
@@ -69,6 +70,11 @@ ${OBJECTDIR}/Menu_Funcionarios.o: Menu_Funcionarios.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Menu_Funcionarios.o Menu_Funcionarios.c
+
+${OBJECTDIR}/Menu_Timesheet.o: Menu_Timesheet.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Menu_Timesheet.o Menu_Timesheet.c
 
 ${OBJECTDIR}/funcs.o: funcs.c
 	${MKDIR} -p ${OBJECTDIR}
