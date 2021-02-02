@@ -19,11 +19,7 @@
 
 //int *saver2;
 
-typedef struct {
-    //int jornadaComp, meiaJorn, falta, folga;
-    int funcNumbr;
-    char funcNome[25];
-} Pessoa;
+
 
 
 
@@ -43,6 +39,13 @@ typedef struct {
     //Pessoa * arrPessoa;
     int funcCode;
 } Timesheet;
+
+typedef struct {
+    //int jornadaComp, meiaJorn, falta, folga;
+    int funcNumbr;
+    char funcNome[25];
+    Timesheet * Timesheets_pessoa;
+} Pessoa;
 
 //saver2 = &(*arrPessoa)[].funcNumbr;
 //(*arrTimesheet)[].funcCode = *saver2;
