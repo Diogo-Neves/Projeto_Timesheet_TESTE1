@@ -19,32 +19,6 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
     
     Timesheet *PNovaTS_Realloc;
     int nfunc, indiceFuncao, contador1, contador2;
-    PNovaTS_Realloc = realloc(*arrTimesheet, (*totalTimesheets) * sizeof(Timesheet)); 
-    
-    /*saver = (int *) malloc(1 * sizeof (int));
-    saver2 = (int *) malloc(1 * sizeof (int));
-    saver2 = &(*arrPessoa)[0].funcNumbr;
-    (*arrTimesheet)[0].funcCode = *saver2;*/
-    //Pessoa Nova;
-    //(*arrTimesheet)[*totalTimesheets] = (Pessoa *) malloc(1*sizeof (Pessoa)); 
-    //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa = (struct Timesheet*) malloc(1 *sizeof (struct Timesheet));
-            //arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
-    
-    //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa[0] = 0;
-    //*totalTimesheets += 1;
-    //PNovaTS_Realloc = (*arrPessoa)[*totalTimesheets].Timesheets_pessoa = realloc(((*arrPessoa)[*totalTimesheets].Timesheets_pessoa), *totalTimesheets *sizeof (Timesheet));
-    
-    //PNovaTS_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));
-    
-        if (PNovaTS_Realloc == NULL) //verificar se foi bem ou mal sucedido
-        {
-            printf("Erro\n");
-            exit(0);
-        }
-        else //este else so esta aqui para facilitar a leitura
-        {
-            *arrTimesheet = PNovaTS_Realloc;
-        }
     
     printf("*contadorTimesheets %d\n", *contadorTimesheets);
 
@@ -58,22 +32,31 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
         
         if(indiceFuncao > -1){
             *totalTimesheets += 1;
+            
+            PNovaTS_Realloc = realloc(*arrTimesheet, (*totalTimesheets) * sizeof(Timesheet)); 
+
+            if (PNovaTS_Realloc == NULL) //verificar se foi bem ou mal sucedido
+            {
+                printf("Erro\n");
+                exit(0);
+            }
+            else //este else so esta aqui para facilitar a leitura
+            {
+                *arrTimesheet = PNovaTS_Realloc;
+            }
+            
+            
+            
             (*arrTimesheet)[contador1].funcCode = (*arrPessoa)[indiceFuncao].funcNumbr;
             (*arrTimesheet)[contador1].timesheetCode = contador1+1;
             printf("NrFuncTS %d\n", (*arrTimesheet)[contador1].funcCode);      
             printf("Timesheet nr %d\n", contador1);
             *contadorTimesheets += 1;
+            
+            printf("ADICIONAR NA POSIÇÃO 'CONTADOR1' AS MEIAS JORNADAS ETC");
         }else{
             printf("Nao existe");
         }
-         
-            
-
- 
-    
-    
-    
-
 
 };
 
@@ -81,7 +64,7 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
 
     
         for (int i = 0; i < *totalTimesheets; i++) {
-             printf("Timesheet ID: %d FuncID: %d \n",(*arrTimesheet)[i].timesheetCode, (*arrTimesheet)[i].funcCode);
+             printf("Timesheet ID: %d FuncID: %d  i: %d\n",(*arrTimesheet)[i].timesheetCode, (*arrTimesheet)[i].funcCode, i);
             
        
    }
@@ -89,23 +72,23 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
 
 
 
-/*void dias_total(Funcionario_st2 *funcionarios, int contador2, int dias, int mes, Timesheet_st2 *timesheets ){
+void dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador){
     
     //int contador3 = 0;
     int fixo = 0;
     
-    printf("[%d]  \n", contador2);
+    printf("[%d]  \n", contador);
 
-    printf("valor do contador %d\n", contador2);
-    printf("Funcionario em dias total:%d TESTE\n", funcionarios->meuST1[contador2].funcNumbr );
+    printf("valor do contador %d -", contador);
+    printf("Funcionario:%d -", (*arrTimesheet)[contador].funcCode );
+    printf("TimesheetCode:%d -", (*arrTimesheet)[contador].timesheetCode );
     
-    
-    timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr = funcionarios->meuST1[contador2].funcNumbr;
-    printf("%d TIMESHEETID\n", timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr);
+    //timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr = funcionarios->meuST1[contador2].funcNumbr;
+    //printf("%d TIMESHEETID\n", timesheets->timesheets[timesheets->contadorTS].funTS[fixo].funcNumbr);
     //printf("%p apontador 1\n",);
     //printf("%p apontador 2\n",funcionarios->meuST1[contador2].funcNumbr);
     
-    timesheets->timesheets->timesheetCode++;
+    //timesheets->timesheets->timesheetCode++;
     
     mes--;
     int primeirodia = 1;
@@ -145,7 +128,7 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
        //scanf("%d", &estadonoDia);
            
        
-       do{
+       /*do{
             printf("Introduza uma opcao: ");
             scanf("%d",&estadonoDia);
             //scanf("%*[^\n]"); scanf("%*c"); //limpar buffer do teclado
@@ -172,10 +155,10 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
                    primeirodia = primeirodia +1;
                    info.tm_mday   = primeirodia;
                    break;
-               default:S
+               default:
                    break;
-        } 
-        }
+        } */
+    }
         
        
        
@@ -196,16 +179,16 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
     //timesheets->contadorTS++;
 
 
-*/
 
-/*void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2){
+
+void preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador){
     
     
     //CONTADOR2 == CONTADOR DA POSIÇÃO DO FUNCIONÁRIO EM QUESTÃO
 
     printf("\n\n\nfuncMes\n");
 
-    printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
+    printf("valor do contador FUNCMES: %d\n", contador);
     //funcionarios->contador = contador2;
     //printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
 
@@ -220,9 +203,9 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
    switch(mes){
        case 1 :
            //Funcionario_st2 *funcionarios, int number, int dias, int mes 
-           dias_total(funcionarios, contador2, 31, mes, timesheets);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
            printf("teste1");
-           break;*/
+           break;
        /*case 2:
            dias_total(28, mes, funcionarios, nr);
            break;
@@ -256,14 +239,14 @@ void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
        case 12:
            dias_total(31, mes, funcionarios, nr);
            break;*/
-       /*default:
+       default:
            printf("Erro");
            break;
                
            
    }
    
-}*/
+}
 
  
 ///ola pessoal

@@ -134,7 +134,7 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
 
 int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
     
-    int i;
+    int i, retornador, novoNumero;
     
     //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
     //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
@@ -142,15 +142,15 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
 
     
     
-    int qqcoisa = FuncNmbr;
+    retornador = FuncNmbr;
     
     
     for(i = 0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == FuncNmbr){
             printf("Funcionário %d já existe.\n", (*arrPessoa)[i].funcNumbr);
             puts("NOVO* Nr de func:");
-            scanf("%d", &FuncNmbr);
-            qqcoisa = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, FuncNmbr);
+            scanf("%d", &novoNumero);
+            retornador = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, novoNumero);
 
         
         
@@ -159,7 +159,7 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
         
     }
     
-    return qqcoisa;
+    return retornador;
 }
 
 
