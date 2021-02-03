@@ -17,6 +17,8 @@
                    projectFiles="true">
       <itemPath>Menu_Funcionarios.c</itemPath>
       <itemPath>Menu_Timesheet.c</itemPath>
+      <itemPath>escrever_binarios.c</itemPath>
+      <itemPath>exportar_meses.c</itemPath>
       <itemPath>funcs.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>meses.c</itemPath>
@@ -50,6 +52,10 @@
       <item path="Menu_TS_header.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Menu_Timesheet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="escrever_binarios.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="exportar_meses.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -87,6 +93,10 @@
       <item path="Menu_TS_header.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Menu_Timesheet.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="escrever_binarios.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="exportar_meses.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.c" ex="false" tool="0" flavor2="0">
       </item>

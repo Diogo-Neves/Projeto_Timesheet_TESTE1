@@ -90,7 +90,11 @@ int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador);
 void atualizarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
 int verificarExistenciaTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios, int nrTS );
 
-
+void exportarMes(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *Total_Timesheets);
+void escreverFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void LerFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void PosicionarFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void escreverTotalFunc(int *totalFuncionarios);
 
 #endif /* FUNCS_H */
 

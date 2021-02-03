@@ -37,6 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Menu_Funcionarios.o \
 	${OBJECTDIR}/Menu_Timesheet.o \
+	${OBJECTDIR}/escrever_binarios.o \
+	${OBJECTDIR}/exportar_meses.o \
 	${OBJECTDIR}/funcs.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/meses.o
@@ -75,6 +77,16 @@ ${OBJECTDIR}/Menu_Timesheet.o: Menu_Timesheet.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Menu_Timesheet.o Menu_Timesheet.c
+
+${OBJECTDIR}/escrever_binarios.o: escrever_binarios.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/escrever_binarios.o escrever_binarios.c
+
+${OBJECTDIR}/exportar_meses.o: exportar_meses.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/exportar_meses.o exportar_meses.c
 
 ${OBJECTDIR}/funcs.o: funcs.c
 	${MKDIR} -p ${OBJECTDIR}

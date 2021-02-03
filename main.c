@@ -60,8 +60,10 @@ int main() {
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
         printf("\n3 - Exportar por mês");
-        printf("\n4 - ");
-        printf("\n5 - ");
+        printf("\n4 - Escrever Funcionarios");
+        printf("\n5 - Ler Funcs");
+        printf("\n6 - Posicionar Antigos");
+        printf("\n7 - TESTE VAR");
         printf("\n0 - Sair");
         printf("\n------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
@@ -79,15 +81,20 @@ int main() {
             case 2:
                 menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios, contadorFuncionarios);
                 break;
-            /*case 3:
-                listTimesheets(timesheets);
+            case 3:
+                exportarMes(&arrPessoa, &arrTimesheet, totalTimesheets);
                 break;
-            //case 4:
-              //  removerAlunos(&alunos);
-                //break;*/
-            //case 5:
-              // listarFuncs(&arrPessoa, &totalFuncionarios);
-               //break;
+            case 4:
+                escreverFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+                break;
+            case 5:
+               LerFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+               break;
+            case 6:
+                PosicionarFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+                break;
+            case 7:
+                escreverTotalFunc(totalFuncionarios);
             default:
                 printf("\nOpcão invalida!");
         }
@@ -96,6 +103,8 @@ int main() {
     
     free(arrPessoa);
     arrPessoa = NULL;
+    free(arrTimesheet);
+    arrTimesheet = NULL;
     return 0;
 }
 
