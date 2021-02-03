@@ -49,10 +49,10 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
             case 1:
                 criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
-            /*case 2:
-                atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
+            case 2:
+                atualizarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
-            case 3:
+            /*case 3:
                 eliminarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
             //case 4:

@@ -43,7 +43,7 @@ typedef struct {
 } Pessoa;
 
 typedef struct {
-    int jornadaComp, meiaJorn, falta, folga;
+    int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
     int mesTS, anoTS, timesheetCode;
     //Pessoa * Pessoas;
     int funcCode;
@@ -82,9 +82,13 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
 int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
     
     
-    
-    
+int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador);    
+int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador);    
 
+
+
+void atualizarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
+int verificarExistenciaTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios, int nrTS );
 
 
 

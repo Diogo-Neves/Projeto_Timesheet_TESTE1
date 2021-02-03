@@ -59,9 +59,9 @@ int main() {
         printf("\nFuncionários------------------------------------------------------");
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
-        printf("\n3 - Listar Timesheets");
-        printf("\n4 - Remover");
-        printf("\n5 - Listar");
+        printf("\n3 - Exportar por mês");
+        printf("\n4 - ");
+        printf("\n5 - ");
         printf("\n0 - Sair");
         printf("\n------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
