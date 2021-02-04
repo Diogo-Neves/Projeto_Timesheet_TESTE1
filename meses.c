@@ -324,76 +324,106 @@ int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador){
 
 int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador){
     
-    int dia, verificar, contadorDias = 0;
-    puts("Insira o dia a preencher:");
-    scanf("%d", &dia);
+    int dia, verificar, contadorDias = 0, k;
+    
     (*arrTimesheet)[contador].dias_scope = (Dias *) malloc (sizeof (Dias) * 1);
+    //(*arrTimesheet)[contador].dias_scope = 0;
     
+    zerardias(arrTimesheet, contador, dias);
     
-    (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
+    puts("Insira o dia(1) a preencher:");
+    scanf("%d", &dia);
     
-    
-    printf("dia %d",(*arrTimesheet)[contador].dias_scope[contadorDias].dia);
-    //contadorDias += 1;
-    
-    (*arrTimesheet)[contador].mesTS = mes;
-    puts("hello");
-    verificar = contagemDias(arrTimesheet, dia, contador, mes);
-    //devolve se já está preenchido
-    
-    puts("hello");
-    //AGORA PRECISO DE VERIFICAR QUANTOS DIAS TEM
-    contadorDias = retornarquantosdias(arrTimesheet, dia, contador, mes);
-    printf("contar dias: %d", contadorDias);
-    puts("hello");
-    if(verificar != -1){
+    if(contadorDias == 0){
         (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
     }
-    printf("");
-    //(*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
     
-    //total = mes;
+    
+    do{
+        
+        puts("Insira o dia(2+) a preencher:");
+        scanf("%d", &dia);
+        
 
-    mes--;
-    int primeirodia = 1;
-    int ret;
-    struct tm info;
-    char buffer[80];
 
-    info.tm_year = 2021 - 1900;
-    info.tm_mon = mes;              // 1 a 12 (meses)
-    info.tm_mday = dia;     // dia di mes '1 2 3 /  31
-    info.tm_hour = 0;
-    info.tm_min = 0;
-    info.tm_sec = 1;
-    info.tm_isdst = -1;
-    //info.tm_mon = 0          // 7 domingo 1 segunda
+        //(*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
 
+
+        //printf("dia %d",(*arrTimesheet)[contador].dias_scope[contadorDias].dia);
+        //contadorDias += 1;
+
+        (*arrTimesheet)[contador].mesTS = mes;
+        puts("hello");
+        verificar = contagemDias(arrTimesheet, dia, contador, dias);
+        //devolve se já está preenchido
+        printf("verificar: %d", verificar);
+        puts("hello");
+        //AGORA PRECISO DE VERIFICAR QUANTOS DIAS TEM
+        contadorDias = retornarquantosdias(arrTimesheet, dia, contador, dias);
+        printf("contar dias: %d", contadorDias);
+        puts("hello");
+        if(verificar != -1){
+            (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
+            printf("dia  TESTE %d \n",(*arrTimesheet)[contador].dias_scope[contadorDias].dia);
+            //contadorDias += 1;
+        }
+        
+        
+        
+        //for(int k = 0; k < contadorDias)
+        //printf("dia  TESTE %d \n",(*arrTimesheet)[contador].dias_scope[contadorDias].dia);
+        /*printf("");
+        //(*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
+
+        //total = mes;
+
+        mes--;
+        int primeirodia = 1;
+        int ret;
+        struct tm info;
+        char buffer[80];
+
+        info.tm_year = 2021 - 1900;
+        info.tm_mon = mes;              // 1 a 12 (meses)
+        info.tm_mday = dia;     // dia di mes '1 2 3 /  31
+        info.tm_hour = 0;
+        info.tm_min = 0;
+        info.tm_sec = 1;
+        info.tm_isdst = -1;
+        //info.tm_mon = 0          // 7 domingo 1 segunda
+
+
+
+        int estadonoDia;
+
+        //while(primeirodia <= dias){
+            ret = mktime(&info);
+            if( ret == -1 ) {
+                printf("Error: unable to make time using mktime\n");
+            } else {
+          strftime(buffer, sizeof(buffer), "%c", &info );
+          printf(buffer);
+            //}*/
+
+
+           puts("\n1:Integral\n2:Parcial\n3:falta\n4:folga:");
+
+           //contadorDias += 1;
+
+        }while(dia != 0); 
     
-    
-    int estadonoDia;
- 
-    //while(primeirodia <= dias){
-        ret = mktime(&info);
-        if( ret == -1 ) {
-            printf("Error: unable to make time using mktime\n");
-        } else {
-      strftime(buffer, sizeof(buffer), "%c", &info );
-      printf(buffer);
-        //}
-          
-          
-       puts("\n1:Integral\n2:Parcial\n3:falta\n4:folga:");
-       
-       contadorDias += 1;
-       
-    }
-    
+        for(int k = 0; k < dias; k++){
+            printf(" Dias preenchidos: %d  i: %d", (*arrTimesheet)[contador].dias_scope[k].dia, k );
+        }
 }
-
-int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int mes){
     
-    for(int i = 0; i < mes; i++){
+    
+    
+//}
+
+int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int dias){
+    
+    for(int i = 0; i < dias; i++){
         if ((*arrTimesheet)[contador].dias_scope[i].dia == dia){
             puts("Dia já preenchido");
             return -1;
@@ -404,15 +434,32 @@ int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int mes){
     
 }
 
-int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int mes){
+int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias){
     
-    for(int i = 0; i < mes; i++){
-        if ((*arrTimesheet)[contador].dias_scope[i].dia > -1 || (*arrTimesheet)[contador].dias_scope[i].dia < mes ){
+    int k;
+    
+    //k = -1;
+    
+    for(int i = 0; i < dias; i++){
+        
+        if ((*arrTimesheet)[contador].dias_scope[i].dia > 0 && (*arrTimesheet)[contador].dias_scope[i].dia < dias ){
             puts("Dia ");
-            return i;
+            printf("contadordiasRetor %d \n", (*arrTimesheet)[contador].dias_scope[i].dia);
+            k = k+1;
         }
     }
+    printf("k %d \n", k);
+    return k;
     
-    return -1;
+}
+
+int zerardias(Timesheet **arrTimesheet, int contador, int dias){
     
+    //int k = -1;
+    
+    for(int i = 0; i < dias; i++){
+        (*arrTimesheet)[contador].dias_scope[i].dia = 0 ;
+            
+    
+    }
 }

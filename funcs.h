@@ -123,8 +123,9 @@ void posicionarContadorTimesheets(int *contadorTimesheets);
 
 ////////// testes //////////
 
-int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int mes);
-int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int mes);
+int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int dias);
+int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias);
+int zerardias(Timesheet **arrTimesheet, int contador, int dias);
 
 
 
