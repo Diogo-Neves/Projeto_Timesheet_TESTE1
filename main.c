@@ -60,7 +60,7 @@ int main() {
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
         printf("\n3 - Exportar por mês");
-        printf("\n4 - Guardar tudo");
+        printf("\n4 - Guardar tudo original");
         printf("\n5 - Carregar ultimo Guardado");
         printf("\n6 - ");
         printf("\n7 - ");
