@@ -50,7 +50,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
                 criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
             case 2:
-                atualizarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
+                //atualizarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
             /*case 3:
                 eliminarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
@@ -59,7 +59,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
               //  removerAlunos(&alunos);
                 //break;*/
             case 5:
-               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
+               //listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
                break;
             default:
                 printf("\nOpcão invalida!");

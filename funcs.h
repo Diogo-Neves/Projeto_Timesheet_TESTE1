@@ -42,11 +42,18 @@ typedef struct {
     //Timesheet * Timesheets_pessoa;
 } Pessoa;
 
+
 typedef struct {
+    int dia;
     int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
+} Dias;
+
+typedef struct {
+    //int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
     int mesTS, anoTS, timesheetCode;
     //Pessoa * Pessoas;
     int funcCode;
+    Dias * dias_scope;
 } Timesheet;
 
 //saver2 = &(*arrPessoa)[].funcNumbr;
@@ -111,6 +118,15 @@ void escreverContadorTimesheets(int *contadorTimesheets);
 void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
 void posicionarioTotalTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
 void posicionarContadorTimesheets(int *contadorTimesheets);
+
+
+
+////////// testes //////////
+
+int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int mes);
+int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int mes);
+
+
 
 #endif /* FUNCS_H */
 

@@ -41,7 +41,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/exportar_meses.o \
 	${OBJECTDIR}/funcs.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/meses.o
+	${OBJECTDIR}/meses.o \
+	${OBJECTDIR}/preencherTS.o \
+	${OBJECTDIR}/preencherTSv2.o
 
 
 # C Compiler Flags
@@ -102,6 +104,16 @@ ${OBJECTDIR}/meses.o: meses.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/meses.o meses.c
+
+${OBJECTDIR}/preencherTS.o: preencherTS.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/preencherTS.o preencherTS.c
+
+${OBJECTDIR}/preencherTSv2.o: preencherTSv2.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/preencherTSv2.o preencherTSv2.c
 
 # Subprojects
 .build-subprojects:
