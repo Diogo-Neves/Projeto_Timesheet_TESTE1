@@ -96,5 +96,21 @@ void LerFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFun
 void PosicionarFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
 void escreverTotalFunc(int *totalFuncionarios);
 
+
+void carregarTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios, int *contadorFuncionarios, int *totalTimesheets, int *contadorTimesheets );
+void posicionarioTotalFunc(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void escreverTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios, int *contadorFuncionarios, int *totalTimesheets, int *contadorTimesheets);
+
+void escreverContadorFunc(int *contadorFuncionarios);
+void posicionarContadorFunc(int *contadorFuncionarios);
+
+void escreverTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
+void escreverTotalTimesheets(int *totalTimesheets);
+void escreverContadorTimesheets(int *contadorTimesheets);
+
+void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
+void posicionarioTotalTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
+void posicionarContadorTimesheets(int *contadorTimesheets);
+
 #endif /* FUNCS_H */
 

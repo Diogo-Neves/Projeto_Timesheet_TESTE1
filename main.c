@@ -56,14 +56,14 @@ int main() {
 
     do {
         
-        printf("\nFuncionários------------------------------------------------------");
+        printf("\nMenu Inicial------------------------------------------------------");
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
         printf("\n3 - Exportar por mês");
-        printf("\n4 - Escrever Funcionarios");
-        printf("\n5 - Ler Funcs");
-        printf("\n6 - Posicionar Antigos");
-        printf("\n7 - TESTE VAR");
+        printf("\n4 - Guardar tudo");
+        printf("\n5 - Carregar ultimo Guardado");
+        printf("\n6 - ");
+        printf("\n7 - ");
         printf("\n0 - Sair");
         printf("\n------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
@@ -85,16 +85,20 @@ int main() {
                 exportarMes(&arrPessoa, &arrTimesheet, totalTimesheets);
                 break;
             case 4:
-                escreverFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+                //escreverFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+                escreverTudo(&arrPessoa, &arrTimesheet,totalFuncionarios,contadorFuncionarios, totalTimesheets, contadorTimesheets);
                 break;
             case 5:
-               LerFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+               //LerFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+               carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
                break;
-            case 6:
-                PosicionarFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
-                break;
-            case 7:
-                escreverTotalFunc(totalFuncionarios);
+            /*case 6:
+                //PosicionarFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
+                //carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios);
+                //posicionarioTotalFunc(totalFuncionarios);
+                break;*/
+            //case 7:
+              //  escreverTotalFunc(totalFuncionarios);
             default:
                 printf("\nOpcão invalida!");
         }

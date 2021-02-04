@@ -66,7 +66,7 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
     if (pNovo_Realloc == NULL) //verificar se foi bem ou mal sucedido
         {
             printf("Erro\n");
-            exit(0);
+            //exit(0);
         }
         else //este else so esta aqui para facilitar a leitura
         {
