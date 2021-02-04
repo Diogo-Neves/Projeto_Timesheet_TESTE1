@@ -338,17 +338,18 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
     
     (*arrTimesheet)[contador].mesTS = mes;
     puts("hello");
-    verificar = contagemDias(arrTimesheet, dia, contador);
+    verificar = contagemDias(arrTimesheet, dia, contador, mes);
     //devolve se já está preenchido
     
     puts("hello");
     //AGORA PRECISO DE VERIFICAR QUANTOS DIAS TEM
-    contadorDias = retornarquantosdias(arrTimesheet, dia, contador);
+    contadorDias = retornarquantosdias(arrTimesheet, dia, contador, mes);
+    printf("contar dias: %d", contadorDias);
     puts("hello");
     if(verificar != -1){
         (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
     }
-    printf("")
+    printf("");
     //(*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
     
     //total = mes;
@@ -406,8 +407,8 @@ int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int mes){
 int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int mes){
     
     for(int i = 0; i < mes; i++){
-        if ((*arrTimesheet)[contador].dias_scope[i].dia < 0 && (*arrTimesheet)[contador].dias_scope[i].dia > 32 ){
-            puts("Dia já preenchido");
+        if ((*arrTimesheet)[contador].dias_scope[i].dia > -1 || (*arrTimesheet)[contador].dias_scope[i].dia < mes ){
+            puts("Dia ");
             return i;
         }
     }
