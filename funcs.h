@@ -45,11 +45,12 @@ typedef struct {
 
 typedef struct {
     int dia;
-    int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
+    //int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
+    char status[25];
 } Dias;
 
 typedef struct {
-    //int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
+    int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
     int mesTS, anoTS, timesheetCode;
     //Pessoa * Pessoas;
     int funcCode;
@@ -126,7 +127,7 @@ void posicionarContadorTimesheets(int *contadorTimesheets);
 int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int dias);
 int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias);
 int zerardias(Timesheet **arrTimesheet, int contador, int dias);
-
+int diaPorDia(Timesheet **arrTimesheet, int contador, int dias, int mes, int contadorDias, int dia);
 
 
 #endif /* FUNCS_H */

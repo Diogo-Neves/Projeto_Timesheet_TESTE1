@@ -59,7 +59,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
               //  removerAlunos(&alunos);
                 //break;*/
             case 5:
-               //listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
+               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
                break;
             default:
                 printf("\nOpcão invalida!");
