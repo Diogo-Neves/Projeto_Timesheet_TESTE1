@@ -21,14 +21,14 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
     int nfunc, indiceFuncao, contador1, preencherTS;
     
     printf("*contadorTimesheets %d\n", *contadorTimesheets);
-
+    printf("*Total tms %d\n", *totalTimesheets);
         puts("Nr de func:");
         scanf("%d", &nfunc); 
         
         
         indiceFuncao = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
         
-        contador1 = *contadorTimesheets;
+        //contador1 = *contadorTimesheets;
         
         if(indiceFuncao > -1){
             *totalTimesheets += 1;
@@ -48,16 +48,19 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
             }
             
             
-            (*arrTimesheet)[contador1].dias_scope = (Dias *) malloc (sizeof (Dias) * 1);
+            (*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias *) malloc (sizeof (Dias) * 31);
             
-            (*arrTimesheet)[contador1].funcCode = (*arrPessoa)[indiceFuncao].funcNumbr;
+            (*arrTimesheet)[*contadorTimesheets].funcCode = (*arrPessoa)[indiceFuncao].funcNumbr;
             
-            (*arrTimesheet)[contador1].timesheetCode = contador1+1;
+            (*arrTimesheet)[*contadorTimesheets].timesheetCode = *contadorTimesheets+1;
             
-            printf("NrFuncTS %d\n", (*arrTimesheet)[contador1].funcCode);      
-            printf("Timesheet nr %d\n", contador1);
+            printf("NrFuncTS %d\n", (*arrTimesheet)[*contadorTimesheets].funcCode);      
+            printf("Timesheet nr %d\n", *contadorTimesheets);
             
-            preencherTS = preenchermes(arrTimesheet, arrPessoa, contador1);
+            //*contadorTimesheets += 1;
+            printf("*contadorTimesheets antes de chamar PREENCHER %d\n", *contadorTimesheets);
+            
+            preencherTS = preenchermes(arrTimesheet, arrPessoa, contadorTimesheets);   //TEM QUE PASSAR A LEVAR CONTADORTIMESHEETS
             
             /*if(preencherTS == -1){
                 puts("Preenchimento irregular. Timesheet criada com valores 0.");
@@ -71,7 +74,7 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
                 puts("Timesheet Criada com sucesso.");
             }*/
             
-            *contadorTimesheets += 1;
+            
             
             
         }else{
@@ -197,14 +200,14 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
 
 
 
-int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador){
+int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *contadorTimesheets){
     
     
     //CONTADOR2 == CONTADOR DA POSIÇÃO DO FUNCIONÁRIO EM QUESTÃO
 
     printf("\n\n\nfuncMes\n");
 
-    printf("valor do contador FUNCMES: %d\n", contador);
+    printf("valor do contador depois de receber: %d\n", *contadorTimesheets);
     //funcionarios->contador = contador2;
     //printf("valor do contador FUNCMES: %d\n",funcionarios->contador);
 
@@ -223,62 +226,62 @@ int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador){
    switch(mes){
        case 1 :
            //Funcionario_st2 *funcionarios, int number, int dias, int mes 
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 2:
-           dias_total(28, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(28, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 3:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 4:
-           dias_total(30, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(30, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 5:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 6:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            //return executardias;
            break;
        case 7:
-           dias_total(30, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(30, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
        case 8:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
        case 9:
-           dias_total(30, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(30, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
        case 10:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
        case 11:
-           dias_total(30, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(30, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
        case 12:
-           dias_total(31, arrTimesheet, arrPessoa, mes, contador);
+           dias_total(31, arrTimesheet, arrPessoa, mes, contadorTimesheets);
            printf("teste1");
            
            break;
@@ -330,7 +333,7 @@ int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int contador){
 
 ///////////          TESTES BY DIOGOOOO        //////
 
-int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador){
+int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int *contadorTimesheets){
     
     int dia, verificar, contadorDias = 0, k, dia2, mes2;
     Dias *pNovo_realloc_dias;
@@ -339,10 +342,9 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
     
     
     //zerardias(arrTimesheet, contador, dias);
+    printf("contadorts %d \n", *contadorTimesheets);
     
-    for(int k = 0; k < dias; k++){
-            printf(" Dias preenchidos depois de zerar: %d  i: %d \n", (*arrTimesheet)[contador].dias_scope[k].dia, k );
-        }
+    
     
     do{
     puts("Insira o dia(1) a preencher:");
@@ -350,13 +352,7 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
     }while(dia < 1 || dia > dias);
     
     
-    if(contadorDias == 0){
-        
-        //(*arrTimesheet)[contador].dias_scope ;
-                
-                
-
-            pNovo_realloc_dias = realloc((*arrTimesheet)[contador].dias_scope, dias * sizeof(Dias)); 
+    pNovo_realloc_dias = realloc((*arrTimesheet)[*contadorTimesheets].dias_scope, dias * sizeof(Dias)); 
             
             
 
@@ -367,19 +363,36 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
             }
             else //este else so esta aqui para facilitar a leitura
             {
-                (*arrTimesheet)[contador].dias_scope = pNovo_realloc_dias;
+                (*arrTimesheet)[*contadorTimesheets].dias_scope = pNovo_realloc_dias;
             }
+    
+    for(int k = 0; k < dias; k++){
+            printf(" Dias preenchidos depois de zerar: %d  i: %d \n", (*arrTimesheet)[*contadorTimesheets].dias_scope[k].dia, k );
+        }
+    
+    
+    if(contadorDias == 0){
+        
+        //(*arrTimesheet)[contador].dias_scope ;
+                
+                
+
+
+/*
+            
+*/
+
 
         puts("Timesheet Inicializada:");
-        (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
-        (*arrTimesheet)[contador].jornadaCompFDS = 0;
-        (*arrTimesheet)[contador].jornadaComp = 0;
-        (*arrTimesheet)[contador].meiaJornFDS = 0;
-        (*arrTimesheet)[contador].meiaJorn = 0;
-        (*arrTimesheet)[contador].falta = 0;
-        (*arrTimesheet)[contador].folga = 0;
-        (*arrTimesheet)[contador].mesTS = mes;
-        diaPorDia(arrTimesheet,contador,dias,mes,contadorDias,dia);
+        (*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].dia = dia;
+        (*arrTimesheet)[*contadorTimesheets].jornadaCompFDS = 0;
+        (*arrTimesheet)[*contadorTimesheets].jornadaComp = 0;
+        (*arrTimesheet)[*contadorTimesheets].meiaJornFDS = 0;
+        (*arrTimesheet)[*contadorTimesheets].meiaJorn = 0;
+        (*arrTimesheet)[*contadorTimesheets].falta = 0;
+        (*arrTimesheet)[*contadorTimesheets].folga = 0;
+        (*arrTimesheet)[*contadorTimesheets].mesTS = mes;
+        diaPorDia(arrTimesheet, contadorTimesheets,dias,mes,contadorDias,dia);
         
         contadorDias +=1 ;
         
@@ -392,10 +405,10 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
             
             
         
-        verificar = contagemDias(arrTimesheet, dia, contador, dias);
+        verificar = contagemDias(arrTimesheet, dia, contadorTimesheets, dias);        //
         if(verificar != -1 && dia > 0){
-            (*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
-            diaPorDia(arrTimesheet,contador,dias,mes,contadorDias,dia);
+            (*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].dia = dia;
+            diaPorDia(arrTimesheet, contadorTimesheets,dias,mes,contadorDias,dia);
 /*
             dia2 = dia;
             mes2 = mes;
@@ -449,28 +462,13 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
                }
 */
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            //*contadorTimesheets += 1;
+            printf("*contadorTimesheets antes de chamar PREENCHER %d\n", *contadorTimesheets);
             contadorDias +=1 ;
         }
         }while(dia != 0 && contadorDias < dias);
         //devolve se já está preenchido
+        //*contadorTimesheets += 1;
         
     }
     
@@ -533,7 +531,7 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
         /////////////////////////////////////////////////////////////////////
         //for(int k = 0; k < contadorDias)
         //printf("dia  TESTE %d \n",(*arrTimesheet)[contador].dias_scope[contadorDias].dia);
-        printf("");
+        printf("________________---__---__---___\n");
         //(*arrTimesheet)[contador].dias_scope[contadorDias].dia = dia;
 
         //total = mes;
@@ -586,18 +584,19 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
         //////////////////////////////////////////////////
         //}while(dia != 0); 
     for(int k = 0; k < dias; k++){
-            printf(" Dias preenchidos: %d  i: %d    status: %s \n", (*arrTimesheet)[contador].dias_scope[k].dia, k ,(*arrTimesheet)[contador].dias_scope[k].status );
+            printf(" Dias preenchidos: %d  i: %d    status: %s \n", (*arrTimesheet)[*contadorTimesheets].dias_scope[k].dia, k ,(*arrTimesheet)[*contadorTimesheets].dias_scope[k].status );
     }
         //for(int k = 0; k < dias; k++){
           //  printf(" Dias preenchidos: %d  i: %d", (*arrTimesheet)[contador].dias_scope[k].dia, k );
-        }
+        *contadorTimesheets += 1;
+}
    //}
 
 
-int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int dias){
+int contagemDias(Timesheet **arrTimesheet, int dia, int *contadorTimesheets, int dias){
     
     for(int i = 0; i < dias; i++){
-        if ((*arrTimesheet)[contador].dias_scope[i].dia == dia){
+        if ((*arrTimesheet)[*contadorTimesheets].dias_scope[i].dia == dia){
             puts("Dia já preenchido");
             return -1;
         }
@@ -607,6 +606,7 @@ int contagemDias(Timesheet **arrTimesheet, int dia, int contador, int dias){
     
 }
 
+/*
 int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias){
     
     int k;
@@ -625,7 +625,9 @@ int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dia
     return k;
     
 }
+*/
 
+/*
 int zerardias(Timesheet **arrTimesheet, int contador, int dias){
     
     //int k = -1;
@@ -636,11 +638,12 @@ int zerardias(Timesheet **arrTimesheet, int contador, int dias){
     
     }
 }
+*/
 
 
-int diaPorDia(Timesheet **arrTimesheet, int contador, int dias, int mes, int contadorDias, int dia){
+int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int dias, int mes, int contadorDias, int dia){
     
-    int *pNovo_realloc_dias;
+    //int *pNovo_realloc_dias;
     
 /*
      pNovo_realloc_dias = realloc((*arrTimesheet)[contador].dias_scope, (contadorDias) * sizeof(Timesheet)); 
@@ -702,44 +705,44 @@ int diaPorDia(Timesheet **arrTimesheet, int contador, int dias, int mes, int con
                case 1:
                    if(info.tm_wday == 0|| info.tm_wday == 6){
                        
-                       strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome);   
+                       strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome);   
                        //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Integral';
-                       (*arrTimesheet)[contador].jornadaCompFDS++;
+                       (*arrTimesheet)[*contadorTimesheets].jornadaCompFDS++;
                        puts("Jornada Completa - Fim de semana");
                    }else{
                        
-                       strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome);
+                       strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome);
                        //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Integral';
-                       (*arrTimesheet)[contador].jornadaComp++;
+                       (*arrTimesheet)[*contadorTimesheets].jornadaComp++;
                        puts("Jornada Completa");
                    }
                    break;
                case 2:
                    
                    if(info.tm_wday == 0|| info.tm_wday == 6){
-                       strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome3);
+                       strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome3);
                        //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Parcial';
-                       (*arrTimesheet)[contador].meiaJornFDS++;
+                       (*arrTimesheet)[*contadorTimesheets].meiaJornFDS++;
                        puts("Meia jornada - Fim de semana");
                    }else{
                        
-                       strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome3);
+                       strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome3);
                        //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Parcial';
-                       (*arrTimesheet)[contador].meiaJorn++;
+                       (*arrTimesheet)[*contadorTimesheets].meiaJorn++;
                        puts("Meia jornada");
                    }
                    break;
                case 3:
                    
-                   (*arrTimesheet)[contador].falta++;
-                   strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome5);
+                   (*arrTimesheet)[*contadorTimesheets].falta++;
+                   strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome5);
                    //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Falta';
                    puts("Falta");
                    break;
                case 4:
                    
-                   (*arrTimesheet)[contador].folga++;
-                   strcpy((*arrTimesheet)[contador].dias_scope[contadorDias].status, nome6);
+                   (*arrTimesheet)[*contadorTimesheets].folga++;
+                   strcpy((*arrTimesheet)[*contadorTimesheets].dias_scope[contadorDias].status, nome6);
                    //(*arrTimesheet)[contador].dias_scope[contadorDias].status = 'Folga';
                    puts("Folga");
                    break;
@@ -750,4 +753,28 @@ int diaPorDia(Timesheet **arrTimesheet, int contador, int dias, int mes, int con
     
 }
 
+
+void consultarTSutilizador(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets){
+    int userCode;
+    puts("Indique o nr de Utilizador");
+    scanf("%d", &userCode);
+    
+    for(int j = 0; j < *totalTimesheets; j++){
+        if((*arrTimesheet)[j].funcCode == userCode){
+            //printf("Timesheet Nr: %d\n", (*arrTimesheet)[j].timesheetCode);
+            for(int k = 0; k < 31; k++){
+                //if((*arrTimesheet)[j].dias_scope[k].dia != 0 && (*arrTimesheet)[j].dias_scope[k].dia < 32){
+                    //puts("Timesheet preenchida:");
+                    printf("Timesheet Nº: %d - Dia: %d/%d/2021  i: %d    status: %s \n",(*arrTimesheet)[j].timesheetCode, (*arrTimesheet)[j].dias_scope[k].dia,(*arrTimesheet)[j].mesTS , k ,(*arrTimesheet)[j].dias_scope[k].status );
+                //}
+            
+            }
+        }
+    }
+    
+   
+    
+    
+    
+}
 

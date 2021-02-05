@@ -32,7 +32,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
         printf("\nTimesheets------------------------------------------------------");
         printf("\n1 - Inserir nova timesheet");
         printf("\n2 - Atualizar timesheet");
-        printf("\n3 ");
+        printf("\n3 - Consultar Timesheet de User");
         printf("\n4 - ");
         printf("\n5 - Listar Timesheets");
         printf("\n0 - Sair");
@@ -52,12 +52,12 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
             case 2:
                 //atualizarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;
-            /*case 3:
-                eliminarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
+            case 3:
+                consultarTSutilizador(arrTimesheet, arrPessoa,totalTimesheets, contadorTimesheets);
                 break;
             //case 4:
               //  removerAlunos(&alunos);
-                //break;*/
+                //break;
             case 5:
                listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
                break;
