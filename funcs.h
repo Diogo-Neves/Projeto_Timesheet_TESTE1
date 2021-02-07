@@ -80,6 +80,8 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
 //void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
 //void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets );
 
+int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int *contadorTimesheets);
+
 //void lerString(char *string, unsigned int tamanho, char *msg);5
 
 void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);

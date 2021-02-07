@@ -32,25 +32,31 @@ int main() {
     int* totalFuncionarios = malloc(sizeof (int));
     int* contadorFuncionarios = malloc(sizeof (int));
     
-    int totalFUNCS = 0;
-    int contadorFUNCS = 0;
-    *totalFuncionarios = totalFUNCS;
-    *contadorFuncionarios = contadorFUNCS;
-    
     int* totalTimesheets = malloc(sizeof (int));
     int* contadorTimesheets = malloc(sizeof (int));
+    
+    int totalFUNCS = 0;
+    int contadorFUNCS = 0;
+
+    
+
     //totalFUNCS
     //contadorFUNCS
      
     
     int totalTS = 0;
     int contadorTS = 0;
+    
+    *totalFuncionarios = totalFUNCS;
+    *contadorFuncionarios = contadorFUNCS;
 
     
     printf("%d", *totalFuncionarios);
     
     arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
     arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
+    
+    
     *totalTimesheets = totalTS;
     *contadorTimesheets = contadorTS; 
 
