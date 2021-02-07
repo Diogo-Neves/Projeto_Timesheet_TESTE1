@@ -136,7 +136,7 @@ void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTim
     
      
      for(int i = 0; i < *contadorTimesheets; i++){
-         for(int k = 0; k < 31; k++){
+         for(int k = 0; k < 32; k++){
              fwrite(&(*arrTimesheet)[i].dias_scope[k], sizeof (Dias),1, fp);
          }
              
@@ -183,6 +183,7 @@ void PosicionarFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *t
     FILE *fp = fopen(FUNCIONARIOS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
     
@@ -225,6 +226,7 @@ void posicionarioTotalFunc(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *to
     FILE *fp = fopen(TOTALFUNCS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
     
@@ -242,6 +244,7 @@ void posicionarContadorFunc(int *contadorFuncionarios){
     FILE *fp = fopen(CONTADORFUNCS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
     //*contadorFuncionarios = malloc(sizeof (int));
@@ -260,6 +263,7 @@ void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *tot
     FILE *fp = fopen(TIMESHEETS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Recomendado Reiniciar \n");
         exit(EXIT_FAILURE);
     }
     
@@ -291,6 +295,7 @@ void posicionarioTotalTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, i
     FILE *fp = fopen(TOTALTIMESHEETS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
     
@@ -308,6 +313,7 @@ void posicionarContadorTimesheets(int *contadorTimesheets){
     FILE *fp = fopen(CONTADORTIMESHEETS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
     //*contadorFuncionarios = malloc(sizeof (int));
@@ -321,6 +327,7 @@ void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorT
     FILE *fp = fopen(TIMESHEETSDIAS, "r");
     
     if(fp == NULL) {
+        printf("Sem dados guardados - Volte a ligar o programa. \n");
         exit(EXIT_FAILURE);
     }
  
@@ -343,8 +350,8 @@ void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorT
  *  
 */  
     for(int i = 0; i < *contadorTimesheets ; i++){
-        (*arrTimesheet)[i].dias_scope = (Dias*) calloc(31,sizeof(Dias));            
-        for(int k = 0; k < 31 ; k++){
+        (*arrTimesheet)[i].dias_scope = (Dias*) calloc(32,sizeof(Dias));            
+        for(int k = 0; k < 32 ; k++){
                         
                         fread(&(*arrTimesheet)[i].dias_scope[k], sizeof (Dias), 1, fp);
                     }

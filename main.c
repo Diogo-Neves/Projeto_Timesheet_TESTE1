@@ -82,7 +82,7 @@ int main() {
                 //preenchermes(&funcionarios, &timesheets, &timesheets);
                 break;
             case 1:
-                menu_funcionarios(&arrPessoa, totalFuncionarios, contadorFuncionarios);
+                menu_funcionarios(&arrPessoa, totalFuncionarios, contadorFuncionarios,&arrTimesheet, totalTimesheets);
                 break;
             case 2:
                 menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios, contadorFuncionarios);

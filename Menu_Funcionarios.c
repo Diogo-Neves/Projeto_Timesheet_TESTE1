@@ -13,7 +13,7 @@
 /*
  * 
  */
-int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets){
     setlocale(LC_ALL,"");
     int opcao;
     //Pessoa *arrPessoa;
@@ -47,7 +47,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
                 criarFunc(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
             case 2:
-                atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);
+                atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, arrTimesheet, totalTimesheets);
                 break;
             case 3:
                 eliminarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios);

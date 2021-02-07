@@ -192,7 +192,7 @@ void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
 
 
 
-void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets){
     int escolha, nfunc, existenciaIndice = -1, existenciaIndice2 = -1;
     char nomeFunc[25];
     
@@ -216,7 +216,18 @@ void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFu
                 //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
                 printf("Já existe \n");
             }else{
+                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+                //Atualizar na Timesheet
+                
+                for(int i = 0; i < *totalTimesheets; i++){
+                    if((*arrTimesheet)[i].funcCode == (*arrPessoa)[existenciaIndice].funcNumbr){
+                        (*arrTimesheet)[i].funcCode = nfunc;
+                    }
+                }
                 (*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+                
+                
+                
             }
                 //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
             break;

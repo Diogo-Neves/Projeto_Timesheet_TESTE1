@@ -305,7 +305,7 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
 */
     
     
-    (*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias*) calloc(dias+1, sizeof(Dias));
+    (*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias*) calloc(32, sizeof(Dias));
     
     
 /*
@@ -566,7 +566,10 @@ void consultarTSutilizador(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *to
             for(int k = 0; k < 31; k++){
                 //if((*arrTimesheet)[j].dias_scope[k].dia != 0 && (*arrTimesheet)[j].dias_scope[k].dia < 32){
                     //puts("Timesheet preenchida:");
+                if((*arrTimesheet)[j].dias_scope[k].dia != 0){
                     printf("Timesheet Nº: %d - Dia: %d/%d/2021  i: %d    status: %s \n",(*arrTimesheet)[j].timesheetCode, (*arrTimesheet)[j].dias_scope[k].dia,(*arrTimesheet)[j].mesTS , k ,(*arrTimesheet)[j].dias_scope[k].status );
+                }    
+                
                 //}
             
             }

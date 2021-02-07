@@ -33,7 +33,7 @@ void exportarMes(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *Total_Timesh
     fprintf(fp, "Funcionários em %d \n", mes );
     for(int i=0; i < *Total_Timesheets; i++){
         if((*arrTimesheet)[i].mesTS ==  mes){
-            fprintf(fp, "ID: User %d ,",(*arrTimesheet)[i].funcCode );
+            fprintf(fp, "ID: User %d , Jornada Completa: %d , Meia Jornada: %d , Total Trabalhado F/semana: %d , Falta: %d \n",(*arrTimesheet)[i].funcCode, (*arrTimesheet)[i].jornadaComp, (*arrTimesheet)[i].meiaJorn, (*arrTimesheet)[i].jornadaCompFDS+(*arrTimesheet)[i].meiaJornFDS, (*arrTimesheet)[i].falta );
         }
     }
     
