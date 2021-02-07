@@ -17,6 +17,7 @@
 #define TIMESHEETS "Timesheets.txt"
 #define TOTALTIMESHEETS "SaveTotalTimesheet.txt"
 #define CONTADORTIMESHEETS "ContadorTimesheet.txt"
+#define TIMESHEETSDIAS "Timesheetsdias.txt"
 
 void escreverFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios){
     
@@ -123,6 +124,36 @@ void escreverContadorTimesheets(int *contadorTimesheets){
    
 }
 
+void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets){
+    
+    //(*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias*) calloc(dias, sizeof(Dias) * dias);
+    
+     FILE *fp = fopen(TIMESHEETSDIAS, "wb+");
+    
+    if(fp == NULL) {
+        exit(EXIT_FAILURE);
+    }
+    
+     
+     for(int i = 0; i < *contadorTimesheets; i++){
+         for(int k = 0; k < 31; k++){
+             fwrite(&(*arrTimesheet)[i].dias_scope[k], sizeof (Dias),1, fp);
+         }
+             
+         //fwrite(&(*arrTimesheet)[i].dias_scope, sizeof (Dias),1, fp);
+         
+     }
+    //fwrite(&(*arrTimesheet)[*contadorTimesheets].dias_scope, sizeof (Dias), 31, fp);
+
+    
+    
+    fclose(fp);
+    //return 0;
+    
+    
+    
+}
+
 
 
 
@@ -224,7 +255,7 @@ void posicionarContadorFunc(int *contadorFuncionarios){
 
 void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets){
     //int num_alunos;
-    Pessoa *novo;
+    Timesheet *novo;
     
     FILE *fp = fopen(TIMESHEETS, "r");
     
@@ -244,6 +275,7 @@ void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *tot
                 *arrTimesheet = novo;
                 
                 for(int i = 0; i < *totalTimesheets ; i++){
+                    
                     
                     fread(&(*arrTimesheet)[i], sizeof (Timesheet), 1, fp);
                 }
@@ -285,6 +317,49 @@ void posicionarContadorTimesheets(int *contadorTimesheets){
 }
 
 
+void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets){
+    FILE *fp = fopen(TIMESHEETSDIAS, "r");
+    
+    if(fp == NULL) {
+        exit(EXIT_FAILURE);
+    }
+ 
+/*
+    for(int i = 0; i < *contadorTimesheets; i++){
+         fwrite(&(*arrTimesheet)[i].dias_scope, sizeof (Dias), 31, fp);
+     }
+*/
+    
+    //realloc((*arrTimesheet)[*].dias_scope, *totalFuncionarios * sizeof(Pessoa));
+    
+    
+    printf("contador TIMESHEETS posicionar Dias %d \n", *contadorTimesheets);
+/*
+    for(int i = 0; i < *contadorTimesheets+1 ; i++){
+            
+                (*arrTimesheet)[i].dias_scope = (Dias*) calloc(31,sizeof(Dias));
+                    
+                    fread(&(*arrTimesheet)[i].dias_scope, sizeof (Dias), 1, fp);
+ *  
+*/  
+    for(int i = 0; i < *contadorTimesheets ; i++){
+        (*arrTimesheet)[i].dias_scope = (Dias*) calloc(31,sizeof(Dias));            
+        for(int k = 0; k < 31 ; k++){
+                        
+                        fread(&(*arrTimesheet)[i].dias_scope[k], sizeof (Dias), 1, fp);
+                    }
+                    
+                    //fread(&(*arrTimesheet)[i], sizeof (Timesheet), 1, fp);
+                }
+                
+        
+}
+    
+
+
+
+
+
 
 
 
@@ -299,6 +374,8 @@ void escreverTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncio
     escreverTotalTimesheets(totalTimesheets);
     escreverTimesheets(arrPessoa, arrTimesheet, totalTimesheets);
     escreverContadorTimesheets(contadorTimesheets);
+    
+    escreverDias(arrPessoa, arrTimesheet, contadorTimesheets);
 }
 
 
@@ -313,6 +390,7 @@ void carregarTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncio
     posicionarioTotalTimesheets(arrPessoa, arrTimesheet, totalTimesheets);
     PosicionarTimesheets(arrPessoa, arrTimesheet, totalTimesheets);
     posicionarContadorTimesheets(contadorTimesheets);
+    posicionarDias(arrPessoa, arrTimesheet,contadorTimesheets);
     
     
     

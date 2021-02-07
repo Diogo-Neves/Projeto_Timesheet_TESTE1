@@ -133,5 +133,9 @@ int diaPorDia(Timesheet **arrTimesheet,int *contadorTimesheets, int dias, int me
 void consultarTSutilizador(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets);
 
 
+void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
+void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
+
+
 #endif /* FUNCS_H */
 

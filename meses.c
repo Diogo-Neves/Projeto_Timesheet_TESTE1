@@ -305,7 +305,7 @@ int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, 
 */
     
     
-    (*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias*) calloc(dias, sizeof(Dias) * dias);
+    (*arrTimesheet)[*contadorTimesheets].dias_scope = (Dias*) calloc(dias+1, sizeof(Dias));
     
     
 /*
@@ -558,6 +558,7 @@ void consultarTSutilizador(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *to
     int userCode;
     puts("Indique o nr de Utilizador");
     scanf("%d", &userCode);
+    
     
     for(int j = 0; j < *totalTimesheets; j++){
         if((*arrTimesheet)[j].funcCode == userCode){
