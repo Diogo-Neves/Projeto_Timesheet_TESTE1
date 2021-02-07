@@ -10,7 +10,7 @@
 #include <time.h>
 
 //#include "Menu_Funcs_header.h"
-//#include "Menu_TS_header.h"
+#include "Menu_TS_header.h"
 #include "funcs.h"
 #include <locale.h>
 

@@ -9,7 +9,9 @@
 #include <string.h>
 #include <time.h>
 
+
 #include "funcs.h"
+#include "Menu_Funcs_header.h"
 #include <locale.h>
 
 

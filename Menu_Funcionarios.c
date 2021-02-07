@@ -26,14 +26,14 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
 
     do {
         
-        printf("\nFuncionários------------------------------------------------------");
+        printf("\n--Gestão de Funcionários--------------------------------------");
         printf("\n1 - Inserir Funcionários");
         printf("\n2 - Atualizar dados");
         printf("\n3 - Eliminar");
         printf("\n4 - ");
         printf("\n5 - Listar");
-        printf("\n0 - Sair");
-        printf("\n------------------------------------------------------------");
+        printf("\n0 -- Voltar atrás --");
+        printf("\n--------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
         printf("\nOpcão: ");

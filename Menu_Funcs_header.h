@@ -11,29 +11,25 @@
  * Created on 1 de fevereiro de 2021, 12:23
  */
 
+#include "funcs.h"
+
 #ifndef MENU_FUNCS_HEADER_H
 #define MENU_FUNCS_HEADER_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
-/*void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
+
+void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
 int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);
 void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios);
-void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
+void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
 int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
-void eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
-  */  
+int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);   
     
     
     
 
 
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* MENU_FUNCS_HEADER_H */
 

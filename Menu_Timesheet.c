@@ -29,23 +29,20 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
 
     do {
         
-        printf("\nTimesheets------------------------------------------------------");
+        printf("\n --Gestão do Trabalho realizado (Timesheets)------------------");
         printf("\n1 - Inserir nova timesheet");
         printf("\n2 - Atualizar timesheet");
         printf("\n3 - Consultar Timesheet de User");
         printf("\n4 - ");
         printf("\n5 - Listar Timesheets");
-        printf("\n0 - Sair");
-        printf("\n------------------------------------------------------------");
+        printf("\n0 -- Voltar atrás --");
+        printf("\n--------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
         printf("\nOpcão: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
-            case 0:
-                //preenchermes(&funcionarios, &timesheets, &timesheets);
-                break;
             case 1:
                 criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
                 break;

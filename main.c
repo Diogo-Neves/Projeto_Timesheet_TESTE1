@@ -62,16 +62,18 @@ int main() {
 
     do {
         
-        printf("\nMenu Inicial------------------------------------------------------");
+        printf("\n ---Menu Inicial-----Gestão de Trabalho dos Funcionários------");
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
         printf("\n3 - Exportar por mês");
-        printf("\n4 - Guardar tudo original");
-        printf("\n5 - Carregar ultimo Guardado");
-        printf("\n6 - ");
-        printf("\n7 - ");
-        printf("\n0 - Sair");
-        printf("\n------------------------------------------------------------");
+        printf("\n");
+        printf("\n------Dados da aplicação--------------------------------------");
+        printf("\n4 - Guardar estado atual ---------------");
+        printf("\n5 - Carregar ultimo estado guardado ----");
+        printf("\n--------------------------------------------------------------");
+        printf("\n");
+        printf("\n0 - Fechar Aplicação");
+        printf("\n--------------------------------------------------------------");
         //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
         printf("\nOpcão: ");

@@ -7,6 +7,7 @@
       <itemPath>Menu_Funcs_header.h</itemPath>
       <itemPath>Menu_TS_header.h</itemPath>
       <itemPath>funcs.h</itemPath>
+      <itemPath>menus.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -65,6 +66,8 @@
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="menus.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="meses.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="preencherTS.c" ex="false" tool="0" flavor2="0">
@@ -109,6 +112,8 @@
       <item path="funcs.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="menus.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="meses.c" ex="false" tool="0" flavor2="0">
       </item>

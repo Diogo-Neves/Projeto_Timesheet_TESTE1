@@ -1,0 +1,2 @@
+Funcionários em 1 
+ID: User 1 , Jornada Completa: 1 , Meia Jornada: 0 , Total Trabalhado F/semana: 0 , Falta: 0 
