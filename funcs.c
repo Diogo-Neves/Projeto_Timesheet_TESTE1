@@ -30,35 +30,19 @@ void cleanInputBuffer() {
 }
 
 
-/*
-void lerString(char *string, unsigned int tamanho, char *msg) {
-    printf(msg);
-    if (fgets(string, tamanho, stdin) != NULL) {
-        unsigned int len = strlen(string) - 1;
-        if (string[len] == '\n') {
-            string[len] = '\0';
-        } else {
-            cleanInputBuffer();
-        }
-    }
-}
-*/
 
-/*void imprimirFuncs(Funcionario_st1 funcionario){
-    printf("Nr Func %d - Nome Func %-25s \n", funcionario.funcNumbr, funcionario.funcNome);
-}*/
+
+
 void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios) {
     
     //int nrFunc, *pContador;
     int nrFunc;
     Pessoa *pNovo_Realloc;
     char nomeFunc[25];
-    //puts("Nr de func:");
-    //scanf("%d", &nrFunc);  
-    //contadorFuncionarios = *Total_Funcionarios;
+
     *Total_Funcionarios +=1;
     printf("indiceFuncsCRIAR %d \n", *contadorFuncionarios);
-        printf("indiceTOTAL EM CRIAR %d \n", *Total_Funcionarios);
+    printf("indiceTOTAL EM CRIAR %d \n", *Total_Funcionarios);
 
     pNovo_Realloc = realloc(*arrPessoa, (*Total_Funcionarios) * sizeof(Pessoa));  
     
@@ -93,7 +77,7 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
 
 
 
-        //*contadorFuncionarios += 1;
+        
     }else{
         //printf("São mais");
         puts("Nr de func:");
@@ -112,24 +96,11 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
 
         strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);
         
-        //*contadorFuncionarios += 1;
+        
         
     }
     *contadorFuncionarios += 1;
-    //(*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
-    /*printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
-    printf("totalFuncs CRIADO %d\n", *Total_Funcionarios);
-    
-    
-    printf("Nome de func:\n");   
-    scanf(" %[^\n]s", nomeFunc);
-  
-    strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);    
-    
- 
-    
-    
-    *contadorFuncionarios += 1;*/
+
    
 }
 
@@ -137,12 +108,6 @@ void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncion
 int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr){
     
     int i, retornador, novoNumero;
-    
-    //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
-    //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
-    //*contadorFuncionarios = 0;
-
-    
     
     retornador = FuncNmbr;
     
@@ -169,15 +134,7 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
 
 void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
     int i;
-    
-    //printf("%p apontador pessoa\n", arrPessoa);
-    //printf("%p apontador funcs", Total_Funcionarios);
-    
-    //printf("total funcs antes de free: %d", *Total_Funcionarios);
-    
-    //Total_Funcionarios = (int *) malloc(sizeof (int));
-    
- 
+
     for (i = 0; i < *Total_Funcionarios; i++) {
         if((*arrPessoa)[i].funcNumbr != NULL) {
             printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
@@ -211,15 +168,14 @@ void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFu
             puts("Novo Nr:");
             scanf("%d", &nfunc);
             
-            //existenciaIndice = -1;
+            
             existenciaIndice2 = verificarExistenciaFuncs2(arrPessoa, Total_Funcionarios, contadorFuncionarios, nfunc);
             printf("\nexistIndice %d \n", existenciaIndice);
             if(existenciaIndice2 >= 0 ){
-                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+
                 printf("Já existe \n");
             }else{
-                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
-                //Atualizar na Timesheet
+  
                 
                 for(int i = 0; i < *totalTimesheets; i++){
                     if((*arrTimesheet)[i].funcCode == (*arrPessoa)[existenciaIndice].funcNumbr){
@@ -231,7 +187,7 @@ void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFu
                 
                 
             }
-                //(*arrPessoa)[existenciaIndice].funcNumbr = nfunc;
+           
             break;
         case 2:
             puts("Novo Nome:");
@@ -254,19 +210,11 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
     
     int i;
     
-    //printf("\n indiceVerificar : %d \n", *contadorFuncionarios);
-    //printf("\n FuncNumbrVerificar : %d \n", FuncNmbr);
-    //*contadorFuncionarios = 0;
-    //int qqcoisa = FuncNmbr;  
+
     for(i = 0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == FuncNmbr){
-            //printf("Funcionário já existe %d i:%d\n", (*arrPessoa)[i].funcNumbr, i);
-            //puts("Novo user:");
-            //scanf("%d", &FuncNmbr);
-            //qqcoisa = verificarExistenciaFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, FuncNmbr);
+
             return i;
-        
-        
         }
     }
     return -1;
@@ -275,91 +223,73 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *
 }
 
 
-int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios){
+int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets){
     
+    int apagado = -1 ;
     int idapagar;
     puts("Utilizador a apagar: ");
     scanf("%d", &idapagar);
     
-    for(int i=0; i < * Total_Funcionarios; i++){
+    for(int i=0; i < *Total_Funcionarios; i++){
         if((*arrPessoa)[i].funcNumbr == idapagar){
-            //(*arrPessoa)[i].funcNumbr = NULL;
-            strcpy((*arrPessoa)[i].funcNome, "APAGADO");
+            
+            for(int i = 0; i < *totalTimesheets; i++){
+                    if((*arrTimesheet)[i].funcCode == idapagar){
+                        (*arrTimesheet)[i].funcCode = NULL;
+                    }
+                }
+                
+            
+            
+            (*arrPessoa)[i].funcNumbr = NULL;
+            strcpy((*arrPessoa)[i].funcNome, "");
+            apagado = 1;
         }
+        
+    }
+    if(apagado == 1){
+        puts("Apagado Com sucesso;");
+    }else{
+        puts("Impossível apagar Funcionário identificado;");
+        puts("Erro;");
+    }
+  
+}
+
+
+
+void funcsSemTimesheet(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets){
+    
+    
+    for(int i=0; i < *Total_Funcionarios; i++){
+        for(int k=0; k < *totalTimesheets; k++){
+            if((*arrPessoa)[i].funcNumbr != (*arrTimesheet)[k].funcCode){
+                puts("Funcionário existe");
+            }else{
+                printf("Funcionário %d sem Timesheet.",(*arrPessoa)[i].funcNumbr );        
+            }
+        }
+        
+        if(*totalTimesheets == 0){
+            puts("Sem timesheets criadas");
+        }
+    }
+    if(*Total_Funcionarios == 0){
+            puts("Sem funcionarios criados");
     }
     
     
+    
 }
 
 
 
-/*
-void imprimirTimesheets(Timesheet_st1 timesheets, int i){
-    printf("Func Nr: %d Timesheet nr:%d/jornada completa:%d/Meia:%d/falta%d/folga:%d. \n", timesheets.funTS[0].funcNumbr, timesheets.timesheetCode, timesheets.funTS[0].jornadaComp, timesheets.funTS[0].meiaJorn, timesheets.funTS[0].falta, timesheets.funTS[0].folga );
-}
-
-
-
-void listTimesheets(Timesheet_st2 timesheets) {
-    int i;
-    for (i = 0; i < timesheets.contadorTS; i++) {
-        printf("%d", i);        
-        imprimirTimesheets(timesheets.timesheets[i], i);
-        }
-}*/
 
 
 
 
 
 
-
-
-
-
-
-
-
-/*void preencherTS(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets){
-    
-    int nrFunc, i;
-    
-    puts("Indique o seu Nr de Funcionário:");
-    scanf(" %d", &nrFunc);
-    //verificar se existe com uma função que ainda falta
-    //printf("\n\n\nfuncTIMESHEET\n");
-    //printf("pFuncs  %p \n", &funcionarios );
-    
-    //printf("posiçao do contador: %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    //printf("posiçao do funNumber: %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
-    //funcionarios->contador--;
-    printf("valor do contador %d\n",funcionarios->contador);
-    //printf("posiçao do contador:-1 %p\n", &funcionarios->meuST1[funcionarios->contador]);
-    //printf("posiçao do funNumber:-1 %p\n", &funcionarios->meuST1[funcionarios->contador].funcNumbr);
-    
-    
-    
-    //preenchermes(&funcionarios);
-    //preenchermes(&funcionarios->meuST1[funcionarios->contador]);
-    
-    for (i = 0; i < funcionarios->contador; i++) {
-        if(funcionarios->meuST1[i].funcNumbr == nrFunc){
-            printf("Funcionário Existe. ");
-            //printf("posiçao do contador: %d\n", funcionarios->meuST1[i]);
-            //printf("posiçao do funNumber: %d\n", funcionarios->meuST1[i].funcNumbr);
-    
-            
-            preenchermes(funcionarios, timesheets, i );
-        }else{
-            printf("Não existe" );
-        }
-      
-        
-        
-}
-}*/
-    //funcionarios->meuST1[funcionarios->contador].funcNumbr = nrFunc;
-    
     
   
     

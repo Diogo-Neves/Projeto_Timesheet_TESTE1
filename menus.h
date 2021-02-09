@@ -11,6 +11,10 @@
  * Created on 7 de fevereiro de 2021, 20:19
  */
 
+//#include "funcs.h"
+
+//#include "funcs.h"
+
 #ifndef MENUS_H
 #define MENUS_H
 

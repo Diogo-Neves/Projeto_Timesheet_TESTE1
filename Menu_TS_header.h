@@ -30,6 +30,11 @@ int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *contadorTime
 
 int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int *contadorTimesheets);
 
+void refazerTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios);
+int possivelTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios, int timesheetNo);
+void timesheetsIncompletas(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios);
+
+
 
 #endif /* MENU_TS_HEADER_H */
 

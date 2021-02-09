@@ -62,14 +62,15 @@ int main() {
 
     do {
         
-        printf("\n ---Menu Inicial-----Gestão de Trabalho dos Funcionários------");
+        printf("\n ---Menu Inicial-Gestão de Trabalho dos Funcionários---2021---");
         printf("\n1 - Funcionarios");
         printf("\n2 - Timesheets");
         printf("\n3 - Exportar por mês");
-        printf("\n");
+        printf("\n4 - Funcionários com Compensação");
+        puts("");
         printf("\n------Dados da aplicação--------------------------------------");
-        printf("\n4 - Guardar estado atual ---------------");
-        printf("\n5 - Carregar ultimo estado guardado ----");
+        printf("\n5 - Guardar estado atual ---------------");
+        printf("\n6 - Carregar ultimo estado guardado ----");
         printf("\n--------------------------------------------------------------");
         printf("\n");
         printf("\n0 - Fechar Aplicação");
@@ -94,17 +95,21 @@ int main() {
                 break;
             case 4:
                 //escreverFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
-                escreverTudo(&arrPessoa, &arrTimesheet,totalFuncionarios,contadorFuncionarios, totalTimesheets, contadorTimesheets);
+                direitoCompensação(&arrTimesheet,totalTimesheets,contadorTimesheets);
+                
                 break;
             case 5:
                //LerFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
-               carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
+                escreverTudo(&arrPessoa, &arrTimesheet,totalFuncionarios,contadorFuncionarios, totalTimesheets, contadorTimesheets);
+               //carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
                break;
-            /*case 6:
+            case 6:
+                //direitoCompensação(&arrTimesheet,totalTimesheets,contadorTimesheets);
+                carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
                 //PosicionarFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
                 //carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios);
                 //posicionarioTotalFunc(totalFuncionarios);
-                break;*/
+                break;
             //case 7:
               //  escreverTotalFunc(totalFuncionarios);
             default:

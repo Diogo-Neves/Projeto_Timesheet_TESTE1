@@ -23,12 +23,6 @@
 
 
 
-/*
-typedef struct {
-    Pessoa *Pessoas;
-    int contador;
-} Funcionarios ;
-*/
 
 
 
@@ -57,15 +51,6 @@ typedef struct {
     Dias * dias_scope;
 } Timesheet;
 
-//saver2 = &(*arrPessoa)[].funcNumbr;
-//(*arrTimesheet)[].funcCode = *saver2;
-
-
-/*typedef struct {
-    Timesheet timesheets[10];
-    int contadorTS;
-} Timesheet_st2 ;
-*/
 
 
 
@@ -92,7 +77,7 @@ typedef struct {
 //void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
 //int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
 //int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
-    
+  
     
 //int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador);    
 //int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *contadorTimesheets);    
@@ -137,6 +122,10 @@ void posicionarContadorTimesheets(int *contadorTimesheets);
 
 void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
 void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
+
+void funcsSemTimesheet(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);
+
+void direitoCompensação(Timesheet **arrTimesheet,int *totalTimesheets, int *contadorTimesheets);
 
 
 #endif /* FUNCS_H */

@@ -24,7 +24,7 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *c
 void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios);
 void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
 int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
-int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);   
+int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);   
     
     
     
