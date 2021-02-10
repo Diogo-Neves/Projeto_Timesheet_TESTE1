@@ -33,7 +33,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
         printf("\n1 - Inserir nova timesheet");
         printf("\n2 - Verificar Timesheets incompletas");
         printf("\n3 - Consultar Timesheet por código de funcionário(listar dias)");
-        printf("\n4 - Recriar Timesheet");
+        printf("\n4 - Recriar Timesheet/Apagar Timesheet");
         printf("\n5 - Listar Timesheets");
         printf("\n0 -- Voltar atrás --");
         printf("\n--------------------------------------------------------------");

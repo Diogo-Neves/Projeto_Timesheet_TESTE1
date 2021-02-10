@@ -1,2 +1,3 @@
-Funcionários em 1 
-ID: User 1 , Jornada Completa: 1 , Meia Jornada: 0 , Total Trabalhado F/semana: 0 , Falta: 0 
+Funcionários com tempo exercido em 1/2021 
+ID Funcionários, Jornada Completa, Meia Jornada, Total Trabalhado F/semana, Falta  
+       1       ,       1         ,      0      ,               0          ,   0 

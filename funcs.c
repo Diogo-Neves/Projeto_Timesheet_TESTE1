@@ -137,8 +137,8 @@ void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios) {
 
     for (i = 0; i < *Total_Funcionarios; i++) {
         if((*arrPessoa)[i].funcNumbr != NULL) {
-            printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
-            printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);  
+            printf("ID %d ---- ",(*arrPessoa)[i].funcNumbr);     
+            printf("Nome %s \n",(*arrPessoa)[i].funcNome);  
         }
         //printf("ID %d i: %d ---- ",(*arrPessoa)[i].funcNumbr, i);     
         //printf("Nome %s i: %d  \n",(*arrPessoa)[i].funcNome, i);
