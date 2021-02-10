@@ -38,10 +38,6 @@ int main() {
     int totalFUNCS = 0;
     int contadorFUNCS = 0;
 
-    
-
-    //totalFUNCS
-    //contadorFUNCS
      
     
     int totalTS = 0;
@@ -51,7 +47,7 @@ int main() {
     *contadorFuncionarios = contadorFUNCS;
 
     
-    printf("%d", *totalFuncionarios);
+    //printf("%d", *totalFuncionarios);
     
     arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
     arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
@@ -75,43 +71,29 @@ int main() {
         printf("\n");
         printf("\n0 - Fechar Aplicação");
         printf("\n--------------------------------------------------------------");
-        //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
         printf("\nOpcão: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
-            case 0:
-                //preenchermes(&funcionarios, &timesheets, &timesheets);
-                break;
             case 1:
                 menu_funcionarios(&arrPessoa, totalFuncionarios, contadorFuncionarios,&arrTimesheet, totalTimesheets);
                 break;
             case 2:
-                menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios, contadorFuncionarios);
+                menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios);
                 break;
             case 3:
                 exportarMes(&arrPessoa, &arrTimesheet, totalTimesheets);
                 break;
             case 4:
-                //escreverFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
-                direitoCompensação(&arrTimesheet,totalTimesheets,contadorTimesheets);
-                
+                direitoCompensaçao(&arrTimesheet,totalTimesheets);   
                 break;
             case 5:
-               //LerFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
                 escreverTudo(&arrPessoa, &arrTimesheet,totalFuncionarios,contadorFuncionarios, totalTimesheets, contadorTimesheets);
-               //carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
                break;
             case 6:
-                //direitoCompensação(&arrTimesheet,totalTimesheets,contadorTimesheets);
                 carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
-                //PosicionarFuncionarios(&arrPessoa, &arrTimesheet, totalFuncionarios);
-                //carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios);
-                //posicionarioTotalFunc(totalFuncionarios);
                 break;
-            //case 7:
-              //  escreverTotalFunc(totalFuncionarios);
             default:
                 printf("\nOpcão invalida!");
         }

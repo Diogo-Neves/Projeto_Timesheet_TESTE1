@@ -11,6 +11,9 @@
  * Created on 26 de janeiro de 2021, 12:05
  */
 
+//#include "Menu_TS_header.h"
+//#include "Menu_Funcs_header.h"
+
 #ifndef FUNCS_H
 #define FUNCS_H
 
@@ -123,10 +126,16 @@ void posicionarContadorTimesheets(int *contadorTimesheets);
 void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
 void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
 
-void funcsSemTimesheet(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);
+void funcsSemTimesheet(Pessoa **arrPessoa, int *Total_Funcionarios, Timesheet **arrTimesheet, int *totalTimesheets);
 
-void direitoCompensação(Timesheet **arrTimesheet,int *totalTimesheets, int *contadorTimesheets);
+void direitoCompensaçao(Timesheet **arrTimesheet,int *totalTimesheets);
 
+
+
+int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios);
+
+int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *totalFuncionarios, int FuncNmbr);    
 
 #endif /* FUNCS_H */
 

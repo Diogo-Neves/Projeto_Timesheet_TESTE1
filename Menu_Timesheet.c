@@ -9,11 +9,12 @@
 #include <locale.h>
 #include "funcs.h"
 #include "Menu_Funcs_header.h"
+#include "Menu_TS_header.h"
 
 /*
  * 
  */
-int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios ){
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios){
     setlocale(LC_ALL,"");
     int opcao;
     
@@ -44,19 +45,19 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
 
         switch (opcao) {
             case 1:
-                criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios, contadorFuncionarios);
+                criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios);
                 break;
             case 2:
-                timesheetsIncompletas(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets,Total_Funcionarios, contadorFuncionarios);
+                timesheetsIncompletas(arrTimesheet, totalTimesheets);
                 break;
             case 3:
-                consultarTSutilizador(arrTimesheet, arrPessoa,totalTimesheets, contadorTimesheets);
+                consultarTSutilizador(arrTimesheet,totalTimesheets);
                 break;
             case 4:
-                refazerTimesheet(arrTimesheet,arrPessoa,totalTimesheets,contadorTimesheets,Total_Funcionarios,contadorFuncionarios);
+                refazerTimesheet(arrTimesheet,arrPessoa,totalTimesheets,contadorTimesheets,Total_Funcionarios);
                 break;
             case 5:
-               listarTimesheets(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets);
+               listarTimesheets(arrTimesheet,totalTimesheets);
                break;
             default:
                 printf("\nOpcão invalida!");

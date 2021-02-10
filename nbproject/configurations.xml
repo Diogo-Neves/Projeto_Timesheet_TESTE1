@@ -20,11 +20,11 @@
       <itemPath>Menu_Timesheet.c</itemPath>
       <itemPath>escrever_binarios.c</itemPath>
       <itemPath>exportar_meses.c</itemPath>
-      <itemPath>funcs.c</itemPath>
+      <itemPath>funcionarios.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>meses.c</itemPath>
       <itemPath>preencherTS.c</itemPath>
       <itemPath>preencherTSv2.c</itemPath>
+      <itemPath>timesheets.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -60,7 +60,7 @@
       </item>
       <item path="exportar_meses.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="funcs.c" ex="false" tool="0" flavor2="0">
+      <item path="funcionarios.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -68,11 +68,11 @@
       </item>
       <item path="menus.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="meses.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="preencherTS.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="preencherTSv2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="timesheets.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -107,7 +107,7 @@
       </item>
       <item path="exportar_meses.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="funcs.c" ex="false" tool="0" flavor2="0">
+      <item path="funcionarios.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="funcs.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -115,11 +115,11 @@
       </item>
       <item path="menus.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="meses.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="preencherTS.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="preencherTSv2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="timesheets.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

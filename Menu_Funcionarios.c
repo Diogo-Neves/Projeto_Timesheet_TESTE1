@@ -50,7 +50,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
                 atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, arrTimesheet, totalTimesheets);
                 break;
             case 3:
-                eliminarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, arrTimesheet, totalTimesheets);
+                eliminarFuncs(arrPessoa, Total_Funcionarios, arrTimesheet, totalTimesheets);
                 break;
             //case 4:
               //  removerAlunos(&alunos);

@@ -19,12 +19,12 @@
 
 
 
-void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
-int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);
-void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios);
-void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
-int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
-int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);   
+void criarFunc(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFuncionarios);
+int verificarExistenciaFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFuncionarios, int FuncNmbr);
+void listarFuncs(Pessoa **arrPessoa, int *totalFuncionarios);
+void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
+//int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *totalFuncionarios, int FuncNmbr);    
+int eliminarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);   
     
     
     

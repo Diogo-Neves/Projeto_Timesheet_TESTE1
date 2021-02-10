@@ -232,7 +232,7 @@ void posicionarioTotalFunc(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *to
     
     //*totalFuncionarios = malloc(sizeof (int));
     fread(&(*totalFuncionarios), sizeof (int), 1, fp);
-    printf("totalFUNCSDEPOISPOSICIONAR %d ", *totalFuncionarios);    
+    //printf("totalFUNCSDEPOISPOSICIONAR %d ", *totalFuncionarios);    
     
     //PosicionarFuncionarios(arrPessoa, arrTimesheet, totalFuncionarios);
     
@@ -249,7 +249,7 @@ void posicionarContadorFunc(int *contadorFuncionarios){
     }
     //*contadorFuncionarios = malloc(sizeof (int));
     fread(&(*contadorFuncionarios), sizeof (int), 1, fp);
-    printf("contadorFUNCS %d ", *contadorFuncionarios);
+    //printf("contadorFUNCS %d ", *contadorFuncionarios);
      //*contadorFuncionarios = malloc(sizeof (int));
 }
 
@@ -301,7 +301,7 @@ void posicionarioTotalTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, i
     
     //*totalFuncionarios = malloc(sizeof (int));
     fread(&(*totalTimesheets), sizeof (int), 1, fp);
-    printf("totalTS %d ", *totalTimesheets);    
+    //printf("totalTS %d ", *totalTimesheets);    
     
     //PosicionarFuncionarios(arrPessoa, arrTimesheet, totalFuncionarios);
     
@@ -318,7 +318,7 @@ void posicionarContadorTimesheets(int *contadorTimesheets){
     }
     //*contadorFuncionarios = malloc(sizeof (int));
     fread(&(*contadorTimesheets), sizeof (int), 1, fp);
-    printf("contadorTimesheets %d ", *contadorTimesheets);
+    //printf("contadorTimesheets %d ", *contadorTimesheets);
      //*contadorFuncionarios = malloc(sizeof (int));
 }
 
@@ -340,7 +340,7 @@ void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorT
     //realloc((*arrTimesheet)[*].dias_scope, *totalFuncionarios * sizeof(Pessoa));
     
     
-    printf("contador TIMESHEETS posicionar Dias %d \n", *contadorTimesheets);
+    //printf("contador TIMESHEETS posicionar Dias %d \n", *contadorTimesheets);
 /*
     for(int i = 0; i < *contadorTimesheets+1 ; i++){
             
@@ -358,8 +358,12 @@ void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorT
                     
                     //fread(&(*arrTimesheet)[i], sizeof (Timesheet), 1, fp);
                 }
-                
-        
+    
+    puts("");
+    puts("*****************************");
+    puts("Dados carregados com Sucesso");
+    puts("*****************************");            
+    puts("");    
 }
     
 

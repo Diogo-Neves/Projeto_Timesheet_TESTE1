@@ -39,11 +39,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/Menu_Timesheet.o \
 	${OBJECTDIR}/escrever_binarios.o \
 	${OBJECTDIR}/exportar_meses.o \
-	${OBJECTDIR}/funcs.o \
+	${OBJECTDIR}/funcionarios.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/meses.o \
 	${OBJECTDIR}/preencherTS.o \
-	${OBJECTDIR}/preencherTSv2.o
+	${OBJECTDIR}/preencherTSv2.o \
+	${OBJECTDIR}/timesheets.o
 
 
 # C Compiler Flags
@@ -90,20 +90,15 @@ ${OBJECTDIR}/exportar_meses.o: exportar_meses.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/exportar_meses.o exportar_meses.c
 
-${OBJECTDIR}/funcs.o: funcs.c
+${OBJECTDIR}/funcionarios.o: funcionarios.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/funcs.o funcs.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/funcionarios.o funcionarios.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
-
-${OBJECTDIR}/meses.o: meses.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/meses.o meses.c
 
 ${OBJECTDIR}/preencherTS.o: preencherTS.c
 	${MKDIR} -p ${OBJECTDIR}
@@ -114,6 +109,11 @@ ${OBJECTDIR}/preencherTSv2.o: preencherTSv2.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/preencherTSv2.o preencherTSv2.c
+
+${OBJECTDIR}/timesheets.o: timesheets.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/timesheets.o timesheets.c
 
 # Subprojects
 .build-subprojects:
