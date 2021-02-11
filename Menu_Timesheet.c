@@ -11,23 +11,21 @@
 #include "Menu_Funcs_header.h"
 #include "Menu_TS_header.h"
 
-/*
+
+/**
+ * Função de menu que executa as funções referentes às timesheets
  * 
+ * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
+ * @param arrPessoa argumento que trás o apontador do array dinamico de Pessoa
+ * @param totalTimesheets argumento que trás o valor apontado deste contador dinâmico
+ * @param contadorTimesheets argumento que trás o valor apontado deste contador dinâmico
+ * @param totalFuncionarios argumento que trás o valor apontado deste contador dinâmico
+ * @return 
  */
-int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios){
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *totalFuncionarios){
     setlocale(LC_ALL,"");
     int opcao;
     
-    //(*arrPessoa)[*totalTimesheets].Timesheets_pessoa = malloc(*totalTimesheets *sizeof (Timesheet));
-    //Pessoa *arrPessoa;
-    //Funcionario_st2 funcionarios = {.contador = 0};
-    //Timesheet_st2 timesheets = {.contadorTS = 0};
-    //int totalFuncionarios = 0;
-    //int contadorFuncionarios = 0;
-    
-    
-    //arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
-
     do {
         
         printf("\n --Gestão do Trabalho realizado (Timesheets)------------------");
@@ -38,14 +36,13 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
         printf("\n5 - Listar Timesheets");
         printf("\n0 -- Voltar atrás --");
         printf("\n--------------------------------------------------------------");
-        //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
         printf("\nOpcão: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
             case 1:
-                criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, Total_Funcionarios);
+                criarTimesheet(arrTimesheet, arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios);
                 break;
             case 2:
                 timesheetsIncompletas(arrTimesheet, totalTimesheets);
@@ -54,7 +51,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
                 consultarTSutilizador(arrTimesheet,totalTimesheets);
                 break;
             case 4:
-                refazerTimesheet(arrTimesheet,arrPessoa,totalTimesheets,contadorTimesheets,Total_Funcionarios);
+                refazerTimesheet(arrTimesheet,arrPessoa,totalTimesheets,contadorTimesheets,totalFuncionarios);
                 break;
             case 5:
                listarTimesheets(arrTimesheet,totalTimesheets);

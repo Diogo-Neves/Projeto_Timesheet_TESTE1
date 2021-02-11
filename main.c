@@ -1,39 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @file main.c  
+ * @author Diogo Neves
+ * @date 11 Fevereiro 2021
+ * @brief Menus de programa de preenchimento de funcionários e timesheets
+ * 
+ * 
  */
 
-/* 
- * File:   main.c
- * Author: Diogo
- *
- * Created on 26 de janeiro de 2021, 11:53
- */
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include "funcs.h"
 
-/*
- * 
+/**
+ * Esta função é apenas a função inicial para aceder a menus secundários
+ * Aqui são criados apontadores para estruturas criadas e contadores com apontadores
+ * @return 
  */
 int main() {
     setlocale(LC_ALL,"");
     int opcao;
     Pessoa *arrPessoa;
     Timesheet *arrTimesheet;
-    //Funcionario_st2 funcionarios = {.contador = 0};
-    //Timesheet_st2 timesheets = {.contadorTS = 0};
-    //int *totalFUNCS = NULL;
-    //int *contadorFUNCS = NULL;
+
+    arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));             //Alocação de array dinamico
+    arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));    //Alocação de array dinamico
     
-    int* totalFuncionarios = malloc(sizeof (int));
-    int* contadorFuncionarios = malloc(sizeof (int));
     
-    int* totalTimesheets = malloc(sizeof (int));
-    int* contadorTimesheets = malloc(sizeof (int));
+    int* totalFuncionarios = malloc(sizeof (int));                  //Alocação de um contador dinamicamente
+    int* contadorFuncionarios = malloc(sizeof (int));               //Alocação de um contador dinamicamente
+    
+    int* totalTimesheets = malloc(sizeof (int));                    //Alocação de um contador dinamicamente
+    int* contadorTimesheets = malloc(sizeof (int));                 //Alocação de um contador dinamicamente
     
     int totalFUNCS = 0;
     int contadorFUNCS = 0;
@@ -49,8 +51,7 @@ int main() {
     
     //printf("%d", *totalFuncionarios);
     
-    arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
-    arrTimesheet = (Timesheet *) malloc(1 * sizeof (Timesheet));
+
     
     
     *totalTimesheets = totalTS;
@@ -71,11 +72,19 @@ int main() {
         printf("\n");
         printf("\n0 - Fechar Aplicação");
         printf("\n--------------------------------------------------------------");
-
-        printf("\nOpcão: ");
-        scanf("%d", &opcao);
+        
+        
+        do{
+            printf("\nOpcão: ");
+            scanf("%d", &opcao);
+        }while(opcao < 0 || opcao > 6);   //Loop de tentativas erro de opções do menu
+        
 
         switch (opcao) {
+            case 0:
+                puts("\n");
+                puts("\n...a fechar.");
+                break;   
             case 1:
                 menu_funcionarios(&arrPessoa, totalFuncionarios, contadorFuncionarios,&arrTimesheet, totalTimesheets);
                 break;
@@ -83,7 +92,7 @@ int main() {
                 menu_timesheet(&arrTimesheet, &arrPessoa, totalTimesheets, contadorTimesheets, totalFuncionarios);
                 break;
             case 3:
-                exportarMes(&arrPessoa, &arrTimesheet, totalTimesheets);
+                exportarMes(&arrTimesheet, totalTimesheets);
                 break;
             case 4:
                 direitoCompensaçao(&arrTimesheet,totalTimesheets);   
@@ -95,15 +104,25 @@ int main() {
                 carregarTudo(&arrPessoa, &arrTimesheet,totalFuncionarios, contadorFuncionarios, totalTimesheets, contadorTimesheets);
                 break;
             default:
-                printf("\nOpcão invalida!");
+                break;
         }
 
-    } while (opcao != 0);
+    } while (opcao != 0);       //opção sair
     
-    free(arrPessoa);
-    arrPessoa = NULL;
-    free(arrTimesheet);
-    arrTimesheet = NULL;
-    return 0;
+    
+    
+    freeCalloc(&arrTimesheet, totalTimesheets); //libertar memoria apenas quando se faz sair
+    
+    free(arrPessoa);                            //libertar memoria apenas quando se faz sair
+    
+    free(arrTimesheet);                         //libertar memoria apenas quando se faz sair
+    
+    free(totalTimesheets);                      //libertar memoria apenas quando se faz sair
+    
+    free(contadorFuncionarios);                 //libertar memoria apenas quando se faz sair
+    
+
+    //puts("teste");
+    return (EXIT_SUCCESS);
 }
 

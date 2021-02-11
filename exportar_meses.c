@@ -8,54 +8,59 @@
 #include <stdlib.h>
 #include <locale.h>
 #include "funcs.h"
+#include <string.h>
 
-//#define buffer[100]
-
-
-void exportarMes(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *Total_Timesheets){
-    const char* PalavraMes = "mes";
+/**
+ * Função que imprime para um ficheiro .txt a lista de timesheets preenchidas no
+ * determinado mês selecionado.
+ * 
+ * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
+ * @param totalTimesheets argumento que trás o valor apontado deste contador dinâmico
+ */
+void exportarMes(Timesheet **arrTimesheet, int *totalTimesheets) {
+    const char* PalavraMes = "2021mes";
     const char* tipoFicheiro = ".txt";
     char buffer[100];
     int mes, mes2 = 0;
-    
-    do{
+
+    do {
         puts("Insira o mês a imprimir:");
         scanf("%d", &mes);
-    }while(mes<1 && mes >12);
-    
-    
-    for(int k = 0; k < *Total_Timesheets; k++){
-        if((*arrTimesheet)[k].mesTS == mes){
-            mes2=mes;
+    } while (mes < 1 && mes > 12);
+
+
+    for (int k = 0; k < *totalTimesheets; k++) { //verificador se algum mês está preenchido no selecionado
+        if ((*arrTimesheet)[k].mesTS == mes) {
+            mes2 = mes;
         }
-      
+
     }
 
-    
-    if(mes2 > 0){
-        sprintf(buffer,"%s%d%s",PalavraMes,mes,tipoFicheiro);
+
+    if (mes2 > 0) { //se estiver preenchido, exporta tudo para o ficheiro
+        sprintf(buffer, "%s%d%s", PalavraMes, mes, tipoFicheiro); //transformador do titulo do ficheiro
 
 
 
-        FILE *fp = fopen(buffer, "w");
+        FILE *fp = fopen(buffer, "a");
 
-        if (fp == NULL){
+        if (fp == NULL) {
             exit(EXIT_FAILURE);
         }
-        fprintf(fp, "Funcionários com tempo exercido em %d/2021 \n", mes );
-        fprintf(fp, "ID Funcionários, Jornada Completa, Meia Jornada, Total Trabalhado F/semana, Falta  \n");
-        
-        for(int i=0; i < *Total_Timesheets; i++){
-            if((*arrTimesheet)[i].mesTS ==  mes && (*arrTimesheet)[i].funcCode != 0){
-                fprintf(fp, "       %d       ,       %d         ,      %d      ,               %d          ,   %d \n",(*arrTimesheet)[i].funcCode, (*arrTimesheet)[i].jornadaComp, (*arrTimesheet)[i].meiaJorn, (*arrTimesheet)[i].jornadaCompFDS+(*arrTimesheet)[i].meiaJornFDS, (*arrTimesheet)[i].falta );
+
+        fprintf(fp, "Mes:%d-ID Func_os, Jornada Completa, Meia Jornada, Total Trabalhado F/semana, Falta  \n", mes);
+
+        for (int i = 0; i < *totalTimesheets; i++) {
+            if ((*arrTimesheet)[i].mesTS == mes && (*arrTimesheet)[i].funcCode != 0) {
+                fprintf(fp, "%d,%d,%d,%d,%d \n", (*arrTimesheet)[i].funcCode, (*arrTimesheet)[i].jornadaComp, (*arrTimesheet)[i].meiaJorn, (*arrTimesheet)[i].jornadaCompFDS + (*arrTimesheet)[i].meiaJornFDS, (*arrTimesheet)[i].falta);
             }
         }
         printf("\nExportado com Sucesso;");
 
-        fclose(fp);        
+        fclose(fp);
     }
-    
-    if(mes2 == 0){
+
+    if (mes2 == 0) {
         puts("*****************************");
         puts("Sem sucesso na exportação;");
         puts("Mês possívelmente inexistente;");
@@ -63,7 +68,7 @@ void exportarMes(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *Total_Timesh
     }
 
     //return 0;
-    
-    
-    
+
+
+
 }

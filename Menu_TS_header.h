@@ -17,20 +17,20 @@
 #define MENU_TS_HEADER_H
 
 
-void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios );
+void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios);
 void listarTimesheets(Timesheet **arrTimesheet, int *totalTimesheets);
 
 int contagemDias(Timesheet **arrTimesheet, int dia, int *contadorTimesheets, int dias);
 //int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias);
 //int zerardias(Timesheet **arrTimesheet, int contador, int dias);
-int diaPorDia(Timesheet **arrTimesheet,int *contadorTimesheets, int mes, int contadorDias, int dia);
+int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int contadorDias, int dia);
 void consultarTSutilizador(Timesheet **arrTimesheet, int *totalTimesheets);
 
-int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets); 
+int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets);
 
 int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimesheets);
 
-void refazerTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios);
+void refazerTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios);
 int possivelTimesheet(Timesheet **arrTimesheet, int *totalTimesheets, int timesheetNo);
 void timesheetsIncompletas(Timesheet **arrTimesheet, int *totalTimesheets);
 

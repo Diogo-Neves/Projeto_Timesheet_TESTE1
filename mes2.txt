@@ -1,3 +1,6 @@
 Funcionários em 2 
 ID: User 1 , Jornada Completa: 2 , Meia Jornada: 0 , Total Trabalhado F/semana: 0 , Falta: 0 
 ID: User 2 , Jornada Completa: 11 , Meia Jornada: 4 , Total Trabalhado F/semana: 5 , Falta: 6 
+Funcionários com tempo exercido em 2/2021 
+ID Funcionários, Jornada Completa, Meia Jornada, Total Trabalhado F/semana, Falta  
+       1       ,       1         ,      0      ,               0          ,   0 

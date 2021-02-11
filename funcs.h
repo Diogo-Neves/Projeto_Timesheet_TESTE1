@@ -22,23 +22,12 @@
 
 //int *saver2;
 
-
-
-
-
-
-
-
-
-
-
 typedef struct {
     //int jornadaComp, meiaJorn, falta, folga;
     int funcNumbr;
     char funcNome[25];
     //Timesheet * Timesheets_pessoa;
 } Pessoa;
-
 
 typedef struct {
     int dia;
@@ -57,85 +46,53 @@ typedef struct {
 
 
 
-//void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
-//void listarTimesheets(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets);
-
-//int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);
-//int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios );
 
 
-//void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
-//void listarFuncs(Funcionario_st2 funcionarios);
-//void listTimesheets(Timesheet_st2 timesheets);
-//void preenchermes(Funcionario_st2 *funcionarios, Timesheet_st2 *timesheets, int contador2 );
-//void dias_total(Funcionario_st2 *funcionarios, int number, int dias, int mes, Timesheet_st2 *timesheets );
+void atualizarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios);
+int verificarExistenciaTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios, int *contadorFuncionarios, int nrTS);
 
-//int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int *contadorTimesheets);
-
-//void lerString(char *string, unsigned int tamanho, char *msg);5
-
-//void criarFunc(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);
-//int verificarExistenciaFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);
-//void listarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios);
-//void atualizarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);    
-//int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, int FuncNmbr);    
-//int eliminarFuncs(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios);    
-  
-    
-//int dias_total(int dias, Timesheet **arrTimesheet, Pessoa **arrPessoa, int mes, int contador);    
-//int preenchermes(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *contadorTimesheets);    
-
-
-
-void atualizarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios );
-int verificarExistenciaTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets,int *Total_Funcionarios, int *contadorFuncionarios, int nrTS );
-
-void exportarMes(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *Total_Timesheets);
-void escreverFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void exportarMes(Timesheet **arrTimesheet, int *Total_Timesheets);
+void escreverFuncionarios(Pessoa **arrPessoa, int *totalFuncionarios);
 void LerFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
-void PosicionarFuncionarios(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void PosicionarFuncionarios(Pessoa **arrPessoa, int *totalFuncionarios);
 void escreverTotalFunc(int *totalFuncionarios);
 
 
-void carregarTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios, int *contadorFuncionarios, int *totalTimesheets, int *contadorTimesheets );
-void posicionarioTotalFunc(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios);
+void carregarTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios, int *contadorFuncionarios, int *totalTimesheets, int *contadorTimesheets);
+void posicionarioTotalFunc(int *totalFuncionarios);
 void escreverTudo(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalFuncionarios, int *contadorFuncionarios, int *totalTimesheets, int *contadorTimesheets);
 
 void escreverContadorFunc(int *contadorFuncionarios);
 void posicionarContadorFunc(int *contadorFuncionarios);
 
-void escreverTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
+void escreverTimesheets(Timesheet **arrTimesheet, int *totalTimesheets);
 void escreverTotalTimesheets(int *totalTimesheets);
 void escreverContadorTimesheets(int *contadorTimesheets);
 
-void PosicionarTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
-void posicionarioTotalTimesheets(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *totalTimesheets);
+void PosicionarTimesheets(Timesheet **arrTimesheet, int *totalTimesheets);
+void posicionarioTotalTimesheets(int *totalTimesheets);
 void posicionarContadorTimesheets(int *contadorTimesheets);
 
 
 
-////////// testes //////////
-
-//int contagemDias(Timesheet **arrTimesheet, int dia, int *contadorTimesheets, int dias);
-////int retornarquantosdias(Timesheet **arrTimesheet, int dia, int contador, int dias);
-////int zerardias(Timesheet **arrTimesheet, int contador, int dias);
-//int diaPorDia(Timesheet **arrTimesheet,int *contadorTimesheets, int dias, int mes, int contadorDias, int dia);
-//void consultarTSutilizador(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets);
 
 
-void escreverDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
-void posicionarDias(Pessoa **arrPessoa, Timesheet **arrTimesheet, int *contadorTimesheets);
+
+void escreverDias(Timesheet **arrTimesheet, int *contadorTimesheets);
+void posicionarDias(Timesheet **arrTimesheet, int *contadorTimesheets);
 
 void funcsSemTimesheet(Pessoa **arrPessoa, int *Total_Funcionarios, Timesheet **arrTimesheet, int *totalTimesheets);
 
-void direitoCompensaçao(Timesheet **arrTimesheet,int *totalTimesheets);
+void direitoCompensaçao(Timesheet **arrTimesheet, int *totalTimesheets);
 
 
 
 int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets);
-int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *Total_Funcionarios);
+int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimesheets, int *contadorTimesheets, int *totalFuncionarios);
 
-int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *totalFuncionarios, int FuncNmbr);    
+int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *totalFuncionarios, int FuncNmbr);
+void freeCalloc(Timesheet **arrTimesheet, int *totalTimesheets);
+
 
 #endif /* FUNCS_H */
 

@@ -4,25 +4,28 @@
  * and open the template in the editor.
  */
 
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 #include "funcs.h"
 #include "Menu_Funcs_header.h"
 
-/*
+/**
+ * Menu com o CRUD (Create, Read, Update, Delete) dos funcionários
  * 
+ * @param arrPessoa argumento que trás o apontador do array dinamico de Pessoa
+ * @param Total_Funcionarios argumento que trás o valor apontado deste contador dinâmico
+ * @param contadorFuncionarios  argumento que trás o valor apontado deste contador dinâmico
+ * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
+ * @param totalTimesheets argumento que trás o valor apontado deste contador dinâmico
+ * @return 
  */
 int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets){
     setlocale(LC_ALL,"");
     int opcao;
-    //Pessoa *arrPessoa;
-    //Funcionario_st2 funcionarios = {.contador = 0};
-    //Timesheet_st2 timesheets = {.contadorTS = 0};
-    //int totalFuncionarios = 0;
-    //int contadorFuncionarios = 0;
-    
-    //arrPessoa = (Pessoa *) malloc(1 * sizeof (Pessoa));
 
     do {
         
@@ -30,18 +33,19 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
         printf("\n1 - Inserir Funcionários");
         printf("\n2 - Atualizar dados");
         printf("\n3 - Eliminar");
-        printf("\n4 - ");
-        printf("\n5 - Listar");
+        printf("\n4 - Listar");
         printf("\n0 -- Voltar atrás --");
         printf("\n--------------------------------------------------------------");
-        //printf("\nFuncionários: %d/%d", alunos.contador, MAX_ALUNOS);
 
-        printf("\nOpcão: ");
-        scanf("%d", &opcao);
+        do{
+            printf("\nOpcão: ");
+            scanf("%d", &opcao);
+        }while(opcao < 0 || opcao > 4);
+
 
         switch (opcao) {
             case 0:
-                //preenchermes(&funcionarios, &timesheets, &timesheets);
+                puts("---Voltar atrás---");
                 break;
             case 1:
                 criarFunc(arrPessoa, Total_Funcionarios, contadorFuncionarios);
@@ -52,10 +56,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
             case 3:
                 eliminarFuncs(arrPessoa, Total_Funcionarios, arrTimesheet, totalTimesheets);
                 break;
-            //case 4:
-              //  removerAlunos(&alunos);
-                //break;
-            case 5:
+            case 4:
                listarFuncs(arrPessoa, Total_Funcionarios);
                break;
             default:
