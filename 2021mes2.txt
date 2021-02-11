@@ -1,0 +1,2 @@
+Mes:2-ID Func_os, Jornada Completa, Meia Jornada, Total Trabalhado F/semana, Falta  
+1,1,0,0,0 

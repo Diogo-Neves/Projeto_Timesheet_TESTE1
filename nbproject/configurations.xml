@@ -6,8 +6,7 @@
                    projectFiles="true">
       <itemPath>Menu_Funcs_header.h</itemPath>
       <itemPath>Menu_TS_header.h</itemPath>
-      <itemPath>funcs.h</itemPath>
-      <itemPath>menus.h</itemPath>
+      <itemPath>maindata.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -22,8 +21,6 @@
       <itemPath>exportar_meses.c</itemPath>
       <itemPath>funcionarios.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>preencherTS.c</itemPath>
-      <itemPath>preencherTSv2.c</itemPath>
       <itemPath>timesheets.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -62,15 +59,9 @@
       </item>
       <item path="funcionarios.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="funcs.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="menus.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="preencherTS.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="preencherTSv2.c" ex="false" tool="0" flavor2="0">
+      <item path="maindata.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="timesheets.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -109,15 +100,9 @@
       </item>
       <item path="funcionarios.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="funcs.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="menus.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="preencherTS.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="preencherTSv2.c" ex="false" tool="0" flavor2="0">
+      <item path="maindata.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="timesheets.c" ex="false" tool="0" flavor2="0">
       </item>

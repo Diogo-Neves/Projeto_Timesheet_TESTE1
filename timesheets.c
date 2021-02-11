@@ -1,7 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @file timesheets.c
+ * @author Diogo Neves
+ * @date 11 Fevereiro 2021
+ * @brief Funções do escopo das Timesheets
+ * 
+ * 
  */
 
 #include <stdio.h>
@@ -11,7 +15,7 @@
 
 //#include "Menu_Funcs_header.h"
 #include "Menu_TS_header.h"
-#include "funcs.h"
+#include "maindata.h"
 #include <locale.h>
 
 /**
@@ -99,7 +103,7 @@ void listarTimesheets(Timesheet **arrTimesheet, int *totalTimesheets) {
  * 
  * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
  * @param contadorTimesheets argumento que trás o valor apontado deste contador dinâmico
- * @return  
+ *   
  */
 int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
     //printf("\n\n\nfuncMes\n");
@@ -133,56 +137,56 @@ int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
 
     switch (mes) { //estando o mês por preencher, é chamada a função 'dias_total' com a totalidade de dias do mês em questão
         case 1:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(JAN, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 2:
-            dias_total(28, arrTimesheet, mes, contadorTimesheets);
+            dias_total(FEV, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 3:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(MAR, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 4:
-            dias_total(30, arrTimesheet, mes, contadorTimesheets);
+            dias_total(APR, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 5:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(MAY, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 6:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(JUN, arrTimesheet, mes, contadorTimesheets);
 
             break;
         case 7:
-            dias_total(30, arrTimesheet, mes, contadorTimesheets);
+            dias_total(JUL, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
         case 8:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(AGO, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
         case 9:
-            dias_total(30, arrTimesheet, mes, contadorTimesheets);
+            dias_total(SEP, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
         case 10:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(OCT, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
         case 11:
-            dias_total(30, arrTimesheet, mes, contadorTimesheets);
+            dias_total(NOV, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
         case 12:
-            dias_total(31, arrTimesheet, mes, contadorTimesheets);
+            dias_total(DEC, arrTimesheet, mes, contadorTimesheets);
 
 
             break;
@@ -200,7 +204,7 @@ int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
  * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
  * @param mes argumento que indica o mês tratado
  * @param contadorTimesheets argumento que trás o valor apontado deste contador dinâmico
- * @return 
+ * 
  */
 int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimesheets) {
 
@@ -272,7 +276,6 @@ int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimeshe
  * @param dia argumento que indica o dia em questão a ser verificado
  * @param contadorTimesheets argumento que trás o valor apontado deste contador dinâmico
  * @param dias total de dias pelo qual o mês é composto, para verificação nesse mes
- * @return 
  */
 int contagemDias(Timesheet **arrTimesheet, int dia, int *contadorTimesheets, int dias) {
 
@@ -297,7 +300,6 @@ int contagemDias(Timesheet **arrTimesheet, int dia, int *contadorTimesheets, int
  * @param mes argumento que indica o mês em questão a ser tratado
  * @param contadorDias argumento que indica o indice de dias em que a contagem vai
  * @param dia argumento que indica o dia a ser preenchido com status
- * @return 
  */
 int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int contadorDias, int dia) {
 
@@ -329,10 +331,10 @@ int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int co
         printf(buffer);
     }
 
-    char nome[15] = "Integral";
-    char nome2[15] = "Parcial";
-    char nome3[15] = "Falta";
-    char nome4[15] = "Folga";
+    char nome[MAXNOME] = "Integral";
+    char nome2[MAXNOME] = "Parcial";
+    char nome3[MAXNOME] = "Falta";
+    char nome4[MAXNOME] = "Folga";
     puts("\n1:Integral\n2:Parcial\n3:falta\n4:folga:"); //tipos de status a preencher no dia
 
     do {

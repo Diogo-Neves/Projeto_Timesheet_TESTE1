@@ -41,8 +41,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/exportar_meses.o \
 	${OBJECTDIR}/funcionarios.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/preencherTS.o \
-	${OBJECTDIR}/preencherTSv2.o \
 	${OBJECTDIR}/timesheets.o
 
 
@@ -99,16 +97,6 @@ ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
-
-${OBJECTDIR}/preencherTS.o: preencherTS.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/preencherTS.o preencherTS.c
-
-${OBJECTDIR}/preencherTSv2.o: preencherTSv2.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/preencherTSv2.o preencherTSv2.c
 
 ${OBJECTDIR}/timesheets.o: timesheets.c
 	${MKDIR} -p ${OBJECTDIR}

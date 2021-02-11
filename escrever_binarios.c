@@ -1,13 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @file escrever_binarios.c
+ * @author Diogo Neves
+ * @date 11 Fevereiro 2021
+ * @brief Funções de escrita em ficheiros e reposição no programa de dados (escritos em binario)
+ * 
+ * 
  */
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include "funcs.h"
+#include "maindata.h"
 
 
 #define FUNCIONARIOS "funcionarios.txt"

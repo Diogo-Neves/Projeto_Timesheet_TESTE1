@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * 
+ * @file funcionarios.c
+ * @author Diogo Neves
+ * @date 11 Fevereiro 2021
+ * @brief Funções do escopo dos Funcionários
+ * 
+ * 
  */
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +16,7 @@
 #include <time.h>
 
 
-#include "funcs.h"
+#include "maindata.h"
 #include "Menu_Funcs_header.h"
 #include <locale.h>
 
@@ -24,7 +30,7 @@ void criarFunc(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFunciona
 
     int nrFunc;
     Pessoa *pNovo_Realloc;
-    char nomeFunc[25];
+    char nomeFunc[MAXNOME];
 
     *totalFuncionarios += 1; //antes de realocar aumentar sempre 1 para garantir espaço suficiente
 
@@ -142,7 +148,7 @@ void listarFuncs(Pessoa **arrPessoa, int *totalFuncionarios) {
  */
 void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets) {
     int escolha, nfunc, existenciaIndice = -1, existenciaIndice2 = -1;
-    char nomeFunc[25];
+    char nomeFunc[MAXNOME];
 
     do {
         puts("Pretende alterar: Nº (1) Nome (2)");
@@ -222,7 +228,6 @@ int verificarExistenciaFuncs2(Pessoa **arrPessoa, int *totalFuncionarios, int Fu
  * @param totalFuncionarios argumento que trás o valor apontado deste contador dinâmico
  * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
  * @param totalTimesheets argumento que trás o valor apontado deste contador dinâmico
- * @return 
  */
 int eliminarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets) {
 
@@ -259,31 +264,7 @@ int eliminarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTim
 
 }
 
-/*
-void funcsSemTimesheet(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets) {
 
-
-    for (int i = 0; i < *totalFuncionarios; i++) {
-        for (int k = 0; k < *totalTimesheets; k++) {
-            if ((*arrPessoa)[i].funcNumbr != (*arrTimesheet)[k].funcCode) {
-                puts("Funcionário existe");
-            } else {
-                printf("Funcionário %d sem Timesheet.", (*arrPessoa)[i].funcNumbr);
-            }
-        }
-
-        if (*totalTimesheets == 0) {
-            puts("Sem timesheets criadas");
-        }
-    }
-    if (*totalFuncionarios == 0) {
-        puts("Sem funcionarios criados");
-    }
-
-
-
-}
- */
 
 
 

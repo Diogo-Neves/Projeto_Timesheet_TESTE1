@@ -1,4 +1,4 @@
-build/Debug/Cygwin_1-Windows/funcionarios.o: funcionarios.c funcs.h \
+build/Debug/Cygwin_1-Windows/funcionarios.o: funcionarios.c maindata.h \
  Menu_Funcs_header.h
-funcs.h:
+maindata.h:
 Menu_Funcs_header.h:
