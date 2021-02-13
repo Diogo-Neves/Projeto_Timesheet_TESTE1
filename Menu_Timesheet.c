@@ -41,6 +41,7 @@ int menu_timesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTimes
 
         printf("\nOpcão: ");
         scanf("%d", &opcao);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
 
         switch (opcao) {
             case 1:

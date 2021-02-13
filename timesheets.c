@@ -34,8 +34,14 @@ void criarTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTime
 
 
     printf("\nQuantidade prévia de Timesheets: %d\n", *totalTimesheets);
-    puts("Nr de funcionário:");
-    scanf("%d", &nfunc);
+    do {
+        puts("Nr de funcionário:");
+        scanf("%d", &nfunc);
+        scanf("%*[^\n]");
+        scanf("%*c");
+    } while (nfunc == 0);
+
+
 
 
     indiceFuncao = verificarExistenciaFuncs2(arrPessoa, totalFuncionarios, nfunc); //teste de existencia de funcionário com base no seu indice
@@ -106,9 +112,6 @@ void listarTimesheets(Timesheet **arrTimesheet, int *totalTimesheets) {
  *   
  */
 int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
-    //printf("\n\n\nfuncMes\n");
-
-    //printf("valor do contador depois de receber: %d\n", *contadorTimesheets);
 
 
     int mes, mes2;
@@ -116,6 +119,8 @@ int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
     do {
         puts("Qual o mês em questão:");
         scanf("%d", &mes);
+        scanf("%*[^\n]");
+        scanf("%*c");
     } while (mes < 1 || mes > 12);
 
     mes2 = mes;
@@ -126,9 +131,11 @@ int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
         if ((*arrTimesheet)[s].funcCode == (*arrTimesheet)[*contadorTimesheets].funcCode) {
             if ((*arrTimesheet)[s].mesTS == mes2) {
                 do {
-                    puts("Mês já preenchido pelo Funcionário\nInsira o mês que deseja preencher   (0 = sair):");
+                    puts("Mês já preenchido pelo Funcionário\nInsira o mês que deseja preencher   (-1 = sair):");
                     scanf("%d", &mes);
-                } while (mes < 0 || mes > 12 || mes == mes2);
+                    scanf("%*[^\n]");
+                    scanf("%*c");
+                } while (mes < -1 || mes > 12 || mes == mes2 && mes != 0);
 
             }
         }
@@ -136,6 +143,10 @@ int preenchermes(Timesheet **arrTimesheet, int *contadorTimesheets) {
     }
 
     switch (mes) { //estando o mês por preencher, é chamada a função 'dias_total' com a totalidade de dias do mês em questão
+        case -1:
+            puts("sair");
+            break;
+
         case 1:
             dias_total(JAN, arrTimesheet, mes, contadorTimesheets);
 
@@ -213,6 +224,8 @@ int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimeshe
     do {
         puts("Insira o dia (1ªvez) a preencher:");
         scanf("%d", &dia);
+        scanf("%*[^\n]");
+        scanf("%*c");
     } while (dia < 1 || dia > dias); //inserção de dias entre o valor min e maximo do mês em questão. Primeira rodada pode ser qualquer um.
 
 
@@ -238,6 +251,8 @@ int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimeshe
             puts("");
             puts("Preencher Novo Dia:   (0 = Sair)");
             scanf("%d", &dia);
+            scanf("%*[^\n]");
+            scanf("%*c");
         } while (dia < 0 || dia > dias);
 
 
@@ -262,7 +277,7 @@ int dias_total(int dias, Timesheet **arrTimesheet, int mes, int *contadorTimeshe
 
 
     for (int k = 0; k < dias; k++) { //visualização final da timesheet, mostrando ainda que ficam a faltar dias caso não esteja totalmente preenchida 
-        printf(" %d - Dias preenchidos: %d      status: %s \n", k, (*arrTimesheet)[*contadorTimesheets].dias_scope[k].dia, (*arrTimesheet)[*contadorTimesheets].dias_scope[k].status);
+        printf(" %d - Dias preenchidos: %d/%d/2021      status: %s \n", k + 1, (*arrTimesheet)[*contadorTimesheets].dias_scope[k].dia, mes, (*arrTimesheet)[*contadorTimesheets].dias_scope[k].status);
     }
 
 
@@ -310,7 +325,7 @@ int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int co
 
     info.tm_year = 2021 - 1900;
     info.tm_mon = mes - 1; //0 a 11 por isso retiro 1 - 1 a 12 (meses)
-    info.tm_mday = dia; // dia di mes '1 2 3 /  31
+    info.tm_mday = dia; // dia do mes '1 2 3 /  31
     info.tm_hour = 0;
     info.tm_min = 0;
     info.tm_sec = 1;
@@ -340,6 +355,8 @@ int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int co
     do {
         puts("Insira estado(1->4):");
         scanf("%d", &estadonoDia);
+        scanf("%*[^\n]");
+        scanf("%*c");
     } while (estadonoDia < 1 || estadonoDia > 4);
 
 
@@ -398,8 +415,13 @@ int diaPorDia(Timesheet **arrTimesheet, int *contadorTimesheets, int mes, int co
  */
 void consultarTSutilizador(Timesheet **arrTimesheet, int *totalTimesheets) {
     int userCode, funcExiste = -1;
-    puts("Indique o nr de Utilizador");
-    scanf("%d", &userCode);
+    do {
+        puts("Indique o nr de Utilizador");
+        scanf("%d", &userCode);
+        scanf("%*[^\n]");
+        scanf("%*c"); //Limpar buffer do teclado
+    } while (userCode == 0);
+
 
 
     for (int j = 0; j < *totalTimesheets; j++) {
@@ -409,7 +431,7 @@ void consultarTSutilizador(Timesheet **arrTimesheet, int *totalTimesheets) {
             for (int k = 0; k < 31; k++) {
 
                 if ((*arrTimesheet)[j].dias_scope[k].dia != 0) {
-                    printf("Timesheet Nº: %d - Dia: %d/%d/2021  i: %d    status: %s \n", (*arrTimesheet)[j].timesheetCode, (*arrTimesheet)[j].dias_scope[k].dia, (*arrTimesheet)[j].mesTS, k, (*arrTimesheet)[j].dias_scope[k].status);
+                    printf("Timesheet Nº: %d - Dia: %d/%d/2021 status: %s \n", (*arrTimesheet)[j].timesheetCode, (*arrTimesheet)[j].dias_scope[k].dia, (*arrTimesheet)[j].mesTS, (*arrTimesheet)[j].dias_scope[k].status);
                 }
 
 
@@ -440,7 +462,7 @@ void direitoCompensaçao(Timesheet **arrTimesheet, int *totalTimesheets) {
 
     for (int i = 0; i < *totalTimesheets; i++) {
         if ((*arrTimesheet)[i].timesheetCode != 0 && (*arrTimesheet)[i].jornadaCompFDS > 0 || (*arrTimesheet)[i].meiaJornFDS > 0) {
-            printf("\nTimesheet ID: %d Mes: %d FuncID: %d  i: %d \nCompensações Totais: %d / Compensações Parciais: %d .\n\n\n", (*arrTimesheet)[i].timesheetCode, (*arrTimesheet)[i].mesTS, (*arrTimesheet)[i].funcCode, i, (*arrTimesheet)[i].jornadaCompFDS, (*arrTimesheet)[i].meiaJornFDS);
+            printf("\nTimesheet ID: %d Mes: %d FuncID: %d \nCompensações Totais: %d / Compensações Parciais: %d .\n\n\n", (*arrTimesheet)[i].timesheetCode, (*arrTimesheet)[i].mesTS, (*arrTimesheet)[i].funcCode, (*arrTimesheet)[i].jornadaCompFDS, (*arrTimesheet)[i].meiaJornFDS);
 
         }
     }
@@ -491,13 +513,15 @@ void refazerTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
     int timesheetNo, indiceTS;
     puts("Timesheet a recriar:");
     scanf("%d", &timesheetNo);
+    scanf("%*[^\n]");
+    scanf("%*c"); //Limpar buffer do teclado
 
     indiceTS = possivelTimesheet(arrTimesheet, totalTimesheets, timesheetNo); //verifica a existencia da timesheet. Se existir recebe o seu indice no arrTimesheet.
 
     if (indiceTS != -1 && (*arrTimesheet)[indiceTS].funcCode > 0) {
         puts("******");
         printf("Se pretende realmente recriar a Timesheet que se segue de seguida,\nutilize o número de Funcionário indicado e respetivo\nmês nos passos seguintes para o seu desenvolvimento.\n");
-        printf("Se pretender apagar, Quando questionado pelo Nº de Funcionário indique 0.\n");
+        printf("Se pretender apagar, Quando questionado pelo Nº de Funcionário indique -1 .\n");
         puts("******");
         printf("Funcionário nº: %d || Mês : %d \n\nReformular nova Timesheet:\n", (*arrTimesheet)[indiceTS].funcCode, (*arrTimesheet)[indiceTS].mesTS);
         puts("");
@@ -524,7 +548,6 @@ void refazerTimesheet(Timesheet **arrTimesheet, Pessoa **arrPessoa, int *totalTi
  */
 int possivelTimesheet(Timesheet **arrTimesheet, int *totalTimesheets, int timesheetNo) {
 
-    //int timesheetNo;
     for (int i = 0; i < *totalTimesheets; i++) {
         if ((*arrTimesheet)[i].timesheetCode == timesheetNo) {
 
@@ -543,6 +566,5 @@ int possivelTimesheet(Timesheet **arrTimesheet, int *totalTimesheets, int timesh
 void freeCalloc(Timesheet **arrTimesheet, int *totalTimesheets) {
     for (int i = 0; i < *totalTimesheets; i++) {
         free((*arrTimesheet)[i].dias_scope);
-        printf("livre %d \n", i);
     }
 }

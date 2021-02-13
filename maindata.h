@@ -24,17 +24,17 @@
 
 typedef struct {
     int funcNumbr;
-    char funcNome[25];
+    char funcNome[MAXNOME];
 } Pessoa;
 
 typedef struct {
     int dia;
-    char status[25];
+    char status[MAXNOME];
 } Dias;
 
 typedef struct {
     int jornadaComp, meiaJorn, falta, folga, jornadaCompFDS, meiaJornFDS;
-    int mesTS, anoTS, timesheetCode;
+    int mesTS, timesheetCode;
     int funcCode;
     Dias * dias_scope;
 } Timesheet;

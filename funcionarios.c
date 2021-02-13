@@ -49,14 +49,18 @@ void criarFunc(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFunciona
 
 
     if (*contadorFuncionarios < 1) { //pedidos ao primeiro utilizador (contadorFuncionarios = 0)
+        do{
         puts("Nº de funcionário:");
-        scanf("%d", &nrFunc); //pode ser qualquer um
+        scanf("%d", &nrFunc);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
+        }while(nrFunc == 0); //pode ser qualquer um
 
         (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc; //no inidice do contador, atribuir o nr fornecido
 
 
         printf("Nome do funcionário:\n");
         scanf(" %[^\n]s", nomeFunc);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
 
         strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);
 
@@ -68,12 +72,19 @@ void criarFunc(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFunciona
 
     } else { //Quando o contador de funcionário é mais que 0
 
+        do{
         puts("Nº de funcionário:");
-        scanf("%d", &nrFunc);
+        scanf("%d", &nrFunc);  
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
+        }while(nrFunc == 0);
+
 
 
         nrFunc = verificarExistenciaFuncs(arrPessoa, totalFuncionarios, contadorFuncionarios, nrFunc); //Função testa a existencia deste funcionário e de outros,  
         //quando for novo retorna para nrFunc o novo e vai ser utilizado de seguida
+        
+        
+      
         (*arrPessoa)[*contadorFuncionarios].funcNumbr = nrFunc;
         //printf("valor func CRIADO %d\n",(*arrPessoa)[*contadorFuncionarios].funcNumbr);      
         //printf("totalFuncs CRIADO %d\n", *totalFuncionarios);
@@ -81,6 +92,7 @@ void criarFunc(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFunciona
 
         printf("Nome do funcionário:\n");
         scanf(" %[^\n]s", nomeFunc);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
 
         strcpy((*arrPessoa)[*contadorFuncionarios].funcNome, nomeFunc);
 
@@ -109,10 +121,15 @@ int verificarExistenciaFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *co
 
 
     for (i = 0; i < *totalFuncionarios; i++) {
-        if ((*arrPessoa)[i].funcNumbr == FuncNmbr) {
+        if ((*arrPessoa)[i].funcNumbr == retornador) {
             printf("Funcionário %d já existe.\n", (*arrPessoa)[i].funcNumbr);
+            
+            do{
             puts("NOVO* Nr de funcionário:");
             scanf("%d", &novoNumero);
+            scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
+            }while(novoNumero == 0);
+            
             retornador = verificarExistenciaFuncs(arrPessoa, totalFuncionarios, contadorFuncionarios, novoNumero);
         }
     }
@@ -146,13 +163,14 @@ void listarFuncs(Pessoa **arrPessoa, int *totalFuncionarios) {
  * @param arrTimesheet argumento que trás o apontador do array dinamico de Timesheet
  * @param totalTimesheets argumento que trás o valor apontado deste contador dinâmico
  */
-void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets) {
+void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTimesheet, int *totalTimesheets) {
     int escolha, nfunc, existenciaIndice = -1, existenciaIndice2 = -1;
     char nomeFunc[MAXNOME];
 
     do {
         puts("Pretende alterar: Nº (1) Nome (2)");
         scanf("%d", &escolha);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
     } while (escolha < 1 || escolha > 2);
 
 
@@ -164,8 +182,13 @@ void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFun
     if (existenciaIndice >= 0) { //se o indice for igual ou superior a 0 é porque o funcionário existe
         switch (escolha) {
             case 1:
+                do{
                 puts("Novo Nº de Funcionário:");
-                scanf("%d", &nfunc);
+                scanf("%d", &nfunc);   
+                scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
+                }while(nfunc == 0);
+
+                
 
 
                 existenciaIndice2 = verificarExistenciaFuncs2(arrPessoa, totalFuncionarios, nfunc); //novo teste para garantir que o novo também existe ou nao, se sim não aceita
@@ -190,6 +213,7 @@ void atualizarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, int *contadorFun
             case 2: //opção mudança de nome
                 puts("Novo Nome:");
                 scanf(" %[^\n]s", nomeFunc);
+                scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
                 strcpy((*arrPessoa)[existenciaIndice].funcNome, nomeFunc);
                 break;
             default:
@@ -236,9 +260,10 @@ int eliminarFuncs(Pessoa **arrPessoa, int *totalFuncionarios, Timesheet **arrTim
 
     puts("Utilizador a apagar: ");
     scanf("%d", &idapagar);
+    scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
 
     for (int i = 0; i < *totalFuncionarios; i++) { //teste de existencia e se existir...
-        if ((*arrPessoa)[i].funcNumbr == idapagar) {
+        if ((*arrPessoa)[i].funcNumbr == idapagar && (*arrPessoa)[i].funcNumbr != 0 ) {
 
             for (int i = 0; i < *totalTimesheets; i++) {
                 if ((*arrTimesheet)[i].funcCode == idapagar) {

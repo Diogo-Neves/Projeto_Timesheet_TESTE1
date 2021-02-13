@@ -42,6 +42,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
         do {
             printf("\nOpcão: ");
             scanf("%d", &opcao);
+            scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
         } while (opcao < 0 || opcao > 4);
 
 
@@ -53,7 +54,7 @@ int menu_funcionarios(Pessoa **arrPessoa, int *Total_Funcionarios, int *contador
                 criarFunc(arrPessoa, Total_Funcionarios, contadorFuncionarios);
                 break;
             case 2:
-                atualizarFuncs(arrPessoa, Total_Funcionarios, contadorFuncionarios, arrTimesheet, totalTimesheets);
+                atualizarFuncs(arrPessoa, Total_Funcionarios, arrTimesheet, totalTimesheets);
                 break;
             case 3:
                 eliminarFuncs(arrPessoa, Total_Funcionarios, arrTimesheet, totalTimesheets);

@@ -75,6 +75,7 @@ int main() {
         do {
             printf("\nOpcão: ");
             scanf("%d", &opcao);
+            scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
         } while (opcao < 0 || opcao > 6); //Loop de tentativas erro de opções do menu
 
 
@@ -120,7 +121,7 @@ int main() {
     free(contadorFuncionarios); //libertar memoria apenas quando se faz sair
 
 
-    //puts("teste");
+
     return (EXIT_SUCCESS);
 }
 

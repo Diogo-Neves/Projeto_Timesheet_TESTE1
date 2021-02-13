@@ -30,6 +30,7 @@ void exportarMes(Timesheet **arrTimesheet, int *totalTimesheets) {
     do {
         puts("Insira o mês a imprimir:");
         scanf("%d", &mes);
+        scanf("%*[^\n]"); scanf("%*c"); //Limpar buffer do teclado
     } while (mes < 1 && mes > 12);
 
 
@@ -46,7 +47,7 @@ void exportarMes(Timesheet **arrTimesheet, int *totalTimesheets) {
 
 
 
-        FILE *fp = fopen(buffer, "a");
+        FILE *fp = fopen(buffer, "w+");
 
         if (fp == NULL) {
             exit(EXIT_FAILURE);
